@@ -27,7 +27,6 @@ export const SHOP_LANDING_PHOTOS = [
   'shopfrontsideview.jpg',
   'shopentranceway.jpg',
   'shopfloorlayout.jpg',
-  'shopfront.jpg',
 ] as const
 
 export const openingHours = [
