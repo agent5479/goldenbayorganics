@@ -54,16 +54,23 @@ function PhotoTile({
           onLoad={() => setLoaded(true)}
         />
         <div className="photo-tile__overlay">
-          <span className="photo-tile__title">{item.product?.name ?? item.title}</span>
-          {item.product && (
-            <span className="photo-tile__price">
-              {item.product.price !== null
-                ? `$${item.product.price.toFixed(2)}/${item.product.unit}`
-                : 'Ask in store'}
-            </span>
-          )}
-          {item.product?.note && (
-            <span className="photo-tile__note">{item.product.note}</span>
+          {item.products.length > 1 ? (
+            <>
+              <span className="photo-tile__title">{item.products.map((p) => p.name).join(' · ')}</span>
+              <span className="photo-tile__note">{item.products.length} items available</span>
+            </>
+          ) : (
+            <>
+              <span className="photo-tile__title">{item.product?.name ?? item.title}</span>
+              {item.product && (
+                <span className="photo-tile__price">
+                  {item.product.price !== null
+                    ? `$${item.product.price.toFixed(2)}/${item.product.unit}`
+                    : 'Ask in store'}
+                </span>
+              )}
+              {item.product?.note && <span className="photo-tile__note">{item.product.note}</span>}
+            </>
           )}
         </div>
       </div>

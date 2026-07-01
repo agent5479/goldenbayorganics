@@ -40,18 +40,37 @@ export function PhotoDetailPanel({ item, onClose }: PhotoDetailPanelProps) {
           <img src={fullUrl(item.filename)} alt={item.title} />
         </div>
         <div className="photo-panel__body">
-          <h2 id="photo-panel-title">{item.product?.name ?? item.title}</h2>
-          {item.product ? (
+          {item.products.length > 1 ? (
             <>
-              <p className="photo-panel__price">
-                {item.product.price !== null
-                  ? `$${item.product.price.toFixed(2)} / ${item.product.unit}`
-                  : 'Ask in store for price'}
-              </p>
-              <p className="photo-panel__note">{item.product.note}</p>
+              <h2 id="photo-panel-title">{item.title}</h2>
+              <ul className="photo-panel__product-list">
+                {item.products.map((p) => (
+                  <li key={p.id}>
+                    <strong>{p.name}</strong>
+                    <span>
+                      {p.price !== null ? `$${p.price.toFixed(2)} / ${p.unit}` : 'Ask in store'}
+                    </span>
+                    <p>{p.note}</p>
+                  </li>
+                ))}
+              </ul>
             </>
           ) : (
-            <p className="photo-panel__note">Available in store — call or visit to check stock.</p>
+            <>
+              <h2 id="photo-panel-title">{item.product?.name ?? item.title}</h2>
+              {item.product ? (
+                <>
+                  <p className="photo-panel__price">
+                    {item.product.price !== null
+                      ? `$${item.product.price.toFixed(2)} / ${item.product.unit}`
+                      : 'Ask in store for price'}
+                  </p>
+                  <p className="photo-panel__note">{item.product.note}</p>
+                </>
+              ) : (
+                <p className="photo-panel__note">Available in store — call or visit to check stock.</p>
+              )}
+            </>
           )}
         </div>
       </div>

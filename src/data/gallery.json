@@ -3,9 +3,14 @@
     "id": "patriciasmithequilibriumkinesiologyhealthservices",
     "filename": "PatriciaSmithEquilibriumKinesiologyHealthServices.jpg",
     "thumb": "PatriciaSmithEquilibriumKinesiologyHealthServices.webp",
-    "title": "Patricia Smith Equilibrium Kinesiology Health Services",
-    "category": "shop",
-    "productId": null
+    "title": "Patricia Smith — Equilibrium Kinesiology & Nutrition",
+    "category": "promo",
+    "kind": "promo",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": "https://agent5479.github.io/equilibrium/",
+    "description": "Patricia Smith, owner of Golden Bay Organics, also offers Touch for Health Kinesiology, nutrition, and yoga through Equilibrium.",
+    "stocklist": false
   },
   {
     "id": "agriapotato",
@@ -13,7 +18,14 @@
     "thumb": "agriapotato.webp",
     "title": "Agria Potato",
     "category": "produce",
-    "productId": "agria-potatoes"
+    "kind": "stock",
+    "productId": "agria-potatoes",
+    "productIds": [
+      "agria-potatoes"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "applelocalvarietiesheritage",
@@ -21,7 +33,14 @@
     "thumb": "applelocalvarietiesheritage.webp",
     "title": "Apple Local Varieties Heritage",
     "category": "produce",
-    "productId": "heritage-apples"
+    "kind": "stock",
+    "productId": "heritage-apples",
+    "productIds": [
+      "heritage-apples"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "apples",
@@ -29,7 +48,12 @@
     "thumb": "apples.webp",
     "title": "Apple S",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "apricots",
@@ -37,7 +61,12 @@
     "thumb": "apricots.webp",
     "title": "Apricots",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "asparagus",
@@ -45,7 +74,12 @@
     "thumb": "asparagus.webp",
     "title": "Asparagus",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "avocado",
@@ -53,7 +87,12 @@
     "thumb": "avocado.webp",
     "title": "Avocado",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "beetroot",
@@ -61,7 +100,14 @@
     "thumb": "beetroot.webp",
     "title": "Beetroot",
     "category": "produce",
-    "productId": "beetroot"
+    "kind": "stock",
+    "productId": "beetroot",
+    "productIds": [
+      "beetroot"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "books",
@@ -69,7 +115,12 @@
     "thumb": "books.webp",
     "title": "Books",
     "category": "shop",
-    "productId": null
+    "kind": "shop",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "broccoli",
@@ -77,7 +128,12 @@
     "thumb": "broccoli.webp",
     "title": "Broccoli",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "broccoliandfruits",
@@ -85,7 +141,14 @@
     "thumb": "broccoliandfruits.webp",
     "title": "Broccoliand Fruit S",
     "category": "produce",
-    "productId": "oranges"
+    "kind": "stock",
+    "productId": "oranges",
+    "productIds": [
+      "oranges"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "bulk",
@@ -93,7 +156,14 @@
     "thumb": "bulk.webp",
     "title": "Bulk",
     "category": "bulk",
-    "productId": "rolled-oats"
+    "kind": "stock",
+    "productId": "rolled-oats",
+    "productIds": [
+      "rolled-oats"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "bulklaundryagents",
@@ -101,7 +171,14 @@
     "thumb": "bulklaundryagents.webp",
     "title": "Bulk Laundry Agents",
     "category": "bulk",
-    "productId": "laundry-powder"
+    "kind": "stock",
+    "productId": "laundry-powder",
+    "productIds": [
+      "laundry-powder"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "busyshopshopatmosphere",
@@ -109,7 +186,12 @@
     "thumb": "busyshopshopatmosphere.webp",
     "title": "Busy Shop Shop Atmosphere",
     "category": "shop",
-    "productId": null
+    "kind": "shop",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "cabbagegreen",
@@ -117,7 +199,12 @@
     "thumb": "cabbagegreen.webp",
     "title": "Cabbagegreen",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "cabbagered",
@@ -125,7 +212,12 @@
     "thumb": "cabbagered.webp",
     "title": "Cabbagered",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "calendars",
@@ -133,7 +225,12 @@
     "thumb": "calendars.webp",
     "title": "Calendars",
     "category": "shop",
-    "productId": null
+    "kind": "shop",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "capsicum",
@@ -141,7 +238,14 @@
     "thumb": "capsicum.webp",
     "title": "Capsicum",
     "category": "produce",
-    "productId": "aubergines"
+    "kind": "stock",
+    "productId": "aubergines",
+    "productIds": [
+      "aubergines"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "carrotsandbeetroot",
@@ -149,7 +253,12 @@
     "thumb": "carrotsandbeetroot.webp",
     "title": "Carrotsandbeetroot",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "cauliflower",
@@ -157,7 +266,12 @@
     "thumb": "cauliflower.webp",
     "title": "Cauliflower",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "celery",
@@ -165,7 +279,12 @@
     "thumb": "celery.webp",
     "title": "Celery",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "ceremonialcacao",
@@ -173,7 +292,12 @@
     "thumb": "ceremonialcacao.webp",
     "title": "Ceremonialcacao",
     "category": "herbs",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "chaiandcoffee",
@@ -181,7 +305,12 @@
     "thumb": "chaiandcoffee.webp",
     "title": "Chaiandcoffee",
     "category": "herbs",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "corrianderanddill",
@@ -189,7 +318,14 @@
     "thumb": "corrianderanddill.webp",
     "title": "Corrianderanddill",
     "category": "herbs",
-    "productId": "fresh-herbs"
+    "kind": "stock",
+    "productId": "fresh-herbs",
+    "productIds": [
+      "fresh-herbs"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "cucumber",
@@ -197,7 +333,12 @@
     "thumb": "cucumber.webp",
     "title": "Cucumber",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "discountshelf",
@@ -205,7 +346,12 @@
     "thumb": "discountshelf.webp",
     "title": "Discount Shelf",
     "category": "shop",
-    "productId": null
+    "kind": "shop",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "dishwash",
@@ -213,7 +359,14 @@
     "thumb": "dishwash.webp",
     "title": "Dishwash",
     "category": "household",
-    "productId": "eco-cleaner"
+    "kind": "stock",
+    "productId": "eco-cleaner",
+    "productIds": [
+      "eco-cleaner"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "eggs",
@@ -221,7 +374,12 @@
     "thumb": "eggs.webp",
     "title": "Eggs",
     "category": "specialty",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "exoticiceblocks",
@@ -229,7 +387,12 @@
     "thumb": "exoticiceblocks.webp",
     "title": "Exoticiceblocks",
     "category": "specialty",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "exoticnectars",
@@ -237,7 +400,14 @@
     "thumb": "exoticnectars.webp",
     "title": "Exoticnectars",
     "category": "specialty",
-    "productId": "local-honey"
+    "kind": "stock",
+    "productId": "local-honey",
+    "productIds": [
+      "local-honey"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "fancybreads",
@@ -245,7 +415,14 @@
     "thumb": "fancybreads.webp",
     "title": "Fancy Bread S",
     "category": "bakery",
-    "productId": "artisan-bread"
+    "kind": "stock",
+    "productId": "artisan-bread",
+    "productIds": [
+      "artisan-bread"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "fancycookies",
@@ -253,7 +430,12 @@
     "thumb": "fancycookies.webp",
     "title": "Fancycookies",
     "category": "bakery",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "freshbreads",
@@ -261,7 +443,12 @@
     "thumb": "freshbreads.webp",
     "title": "Fresh Bread S",
     "category": "bakery",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "freshfridge",
@@ -269,7 +456,12 @@
     "thumb": "freshfridge.webp",
     "title": "Fresh Fridge",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "freshfridge2",
@@ -277,7 +469,12 @@
     "thumb": "freshfridge2.webp",
     "title": "Fresh Fridge 2",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "freshfridge3",
@@ -285,7 +482,12 @@
     "thumb": "freshfridge3.webp",
     "title": "Fresh Fridge 3",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "freshfridge4",
@@ -293,7 +495,12 @@
     "thumb": "freshfridge4.webp",
     "title": "Fresh Fridge 4",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "freshvegetables",
@@ -301,7 +508,15 @@
     "thumb": "freshvegetables.webp",
     "title": "Fresh Vegetable S",
     "category": "produce",
-    "productId": "red-onions"
+    "kind": "stock",
+    "productId": "brown-onions",
+    "productIds": [
+      "brown-onions",
+      "red-onions"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "frozenbreaddiscount20percent",
@@ -309,7 +524,12 @@
     "thumb": "frozenbreaddiscount20percent.webp",
     "title": "Frozen Bread Discount 20 Percent",
     "category": "shop",
-    "productId": null
+    "kind": "shop",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "fuitshelf",
@@ -317,7 +537,14 @@
     "thumb": "fuitshelf.webp",
     "title": "Fuitshelf",
     "category": "produce",
-    "productId": "bananas"
+    "kind": "stock",
+    "productId": "bananas",
+    "productIds": [
+      "bananas"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "ginger",
@@ -325,7 +552,14 @@
     "thumb": "ginger.webp",
     "title": "Ginger",
     "category": "herbs",
-    "productId": "dried-spices"
+    "kind": "stock",
+    "productId": "dried-spices",
+    "productIds": [
+      "dried-spices"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "grapes",
@@ -333,7 +567,12 @@
     "thumb": "grapes.webp",
     "title": "Grapes",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "grapes2",
@@ -341,7 +580,12 @@
     "thumb": "grapes2.webp",
     "title": "Grapes 2",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "griedgoods",
@@ -349,7 +593,14 @@
     "thumb": "griedgoods.webp",
     "title": "Griedgoods",
     "category": "bulk",
-    "productId": "brown-rice"
+    "kind": "stock",
+    "productId": "brown-rice",
+    "productIds": [
+      "brown-rice"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "growingpotatoes",
@@ -357,7 +608,12 @@
     "thumb": "growingpotatoes.webp",
     "title": "Growing Potato Es",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "healthyeating",
@@ -365,7 +621,12 @@
     "thumb": "healthyeating.webp",
     "title": "Health Y Eating",
     "category": "specialty",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "kale",
@@ -373,7 +634,12 @@
     "thumb": "kale.webp",
     "title": "Kale",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "leeks",
@@ -381,7 +647,14 @@
     "thumb": "leeks.webp",
     "title": "Leeks",
     "category": "produce",
-    "productId": "leeks"
+    "kind": "stock",
+    "productId": "leeks",
+    "productIds": [
+      "leeks"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "lettuceandparsley",
@@ -389,7 +662,12 @@
     "thumb": "lettuceandparsley.webp",
     "title": "Lettuceandparsley",
     "category": "herbs",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "medicinalmushrooms",
@@ -397,7 +675,12 @@
     "thumb": "medicinalmushrooms.webp",
     "title": "Medicinal Mushroom S",
     "category": "herbs",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "medjooldates",
@@ -405,7 +688,14 @@
     "thumb": "medjooldates.webp",
     "title": "Medjooldates",
     "category": "bulk",
-    "productId": "nuts-mix"
+    "kind": "stock",
+    "productId": "nuts-mix",
+    "productIds": [
+      "nuts-mix"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "mixedvegebasket",
@@ -413,7 +703,12 @@
     "thumb": "mixedvegebasket.webp",
     "title": "Mixedvegebasket",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "mushroomsbrown",
@@ -421,7 +716,12 @@
     "thumb": "mushroomsbrown.webp",
     "title": "Mushroom Sbrown",
     "category": "herbs",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "mushroomsbutton",
@@ -429,7 +729,12 @@
     "thumb": "mushroomsbutton.webp",
     "title": "Mushroom Sbutton",
     "category": "herbs",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "papaya",
@@ -437,7 +742,12 @@
     "thumb": "papaya.webp",
     "title": "Papaya",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "pears",
@@ -445,7 +755,12 @@
     "thumb": "pears.webp",
     "title": "Pears",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "pies",
@@ -453,7 +768,14 @@
     "thumb": "pies.webp",
     "title": "Pies",
     "category": "bakery",
-    "productId": "rainbow-pies"
+    "kind": "stock",
+    "productId": "rainbow-pies",
+    "productIds": [
+      "rainbow-pies"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "plants",
@@ -461,7 +783,12 @@
     "thumb": "plants.webp",
     "title": "Plants",
     "category": "shop",
-    "productId": null
+    "kind": "shop",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "plums",
@@ -469,7 +796,12 @@
     "thumb": "plums.webp",
     "title": "Plums",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "potato",
@@ -477,7 +809,12 @@
     "thumb": "potato.webp",
     "title": "Potato",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "radish",
@@ -485,39 +822,64 @@
     "thumb": "radish.webp",
     "title": "Radish",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "shopentranceway",
     "filename": "shopentranceway.jpg",
     "thumb": "shopentranceway.webp",
-    "title": "Shop Entrance Way",
+    "title": "Welcome in",
     "category": "shop",
-    "productId": null
+    "kind": "shop",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "shopfloorlayout",
     "filename": "shopfloorlayout.jpg",
     "thumb": "shopfloorlayout.webp",
-    "title": "Shop Floor Layout",
+    "title": "Inside the shop",
     "category": "shop",
-    "productId": null
+    "kind": "shop",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "shopfront",
     "filename": "shopfront.jpg",
     "thumb": "shopfront.webp",
-    "title": "Shop Front",
+    "title": "Storefront on Commercial Street",
     "category": "shop",
-    "productId": null
+    "kind": "shop",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "shopfrontsideview",
     "filename": "shopfrontsideview.jpg",
     "thumb": "shopfrontsideview.webp",
-    "title": "Shop Front Sideview",
+    "title": "Commercial Street view",
     "category": "shop",
-    "productId": null
+    "kind": "shop",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "teas",
@@ -525,7 +887,12 @@
     "thumb": "teas.webp",
     "title": "Teas",
     "category": "herbs",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "tinctures",
@@ -533,7 +900,14 @@
     "thumb": "tinctures.webp",
     "title": "Tinctures",
     "category": "herbs",
-    "productId": "turbo-tonics"
+    "kind": "stock",
+    "productId": "turbo-tonics",
+    "productIds": [
+      "turbo-tonics"
+    ],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   },
   {
     "id": "tomatoes",
@@ -541,6 +915,11 @@
     "thumb": "tomatoes.webp",
     "title": "Tomatoes",
     "category": "produce",
-    "productId": null
+    "kind": "stock",
+    "productId": null,
+    "productIds": [],
+    "externalUrl": null,
+    "description": null,
+    "stocklist": true
   }
 ]

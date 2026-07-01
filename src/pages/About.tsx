@@ -51,6 +51,17 @@ export function Component() {
             </a>{' '}
             for weekly specials, or call <a href={`tel:${business.phoneTel}`}>{business.phone}</a>.
           </p>
+
+          <h2>Patricia Smith & Equilibrium</h2>
+          <p>
+            Golden Bay Organics is run by {business.owner.name}, who also offers Touch for Health
+            Kinesiology, nutrition, and yoga through{' '}
+            <a href={business.owner.servicesUrl} target="_blank" rel="noopener noreferrer">
+              {business.owner.servicesName}
+            </a>
+            . Visit Patricia&apos;s wellness site to learn about sessions, courses, and her holistic
+            approach to health.
+          </p>
         </div>
       </article>
     </>

@@ -15,7 +15,20 @@ export const business = {
   phoneTel: '+6435258677',
   facebook: 'https://www.facebook.com/profile.php?id=100092461392927',
   email: null as string | null,
+  owner: {
+    name: 'Patricia Smith',
+    servicesName: 'Equilibrium Kinesiology & Nutrition',
+    servicesUrl: 'https://agent5479.github.io/equilibrium/',
+    promoImage: 'PatriciaSmithEquilibriumKinesiologyHealthServices.jpg',
+  },
 } as const
+
+export const SHOP_LANDING_PHOTOS = [
+  'shopfront.jpg',
+  'shopentranceway.jpg',
+  'shopfloorlayout.jpg',
+  'shopfrontsideview.jpg',
+] as const
 
 export const openingHours = [
   { day: 'Monday', hours: '9am – 5pm', opens: '09:00', closes: '17:00' },

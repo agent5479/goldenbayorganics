@@ -5,7 +5,7 @@ import { PhotoGrid } from '../components/stock/PhotoGrid'
 import { PhotoDetailPanel } from '../components/stock/PhotoDetailPanel'
 import {
   galleryFilterOptions,
-  getGalleryItems,
+  getStocklistGallery,
   type GalleryCategory,
   type GalleryItemWithProduct,
 } from '../lib/gallery'
@@ -15,7 +15,7 @@ import './StocklistPage.css'
 export function Component() {
   const [category, setCategory] = useState<GalleryCategory>('all')
   const [selected, setSelected] = useState<GalleryItemWithProduct | null>(null)
-  const items = getGalleryItems(category)
+  const items = getStocklistGallery(category)
 
   const handleSelect = (item: GalleryItemWithProduct) => {
     if (window.matchMedia('(max-width: 768px)').matches) {

@@ -1,0 +1,29 @@
+{
+  "PatriciaSmithEquilibriumKinesiologyHealthServices.jpg": {
+    "kind": "promo",
+    "title": "Patricia Smith — Equilibrium Kinesiology & Nutrition",
+    "externalUrl": "https://agent5479.github.io/equilibrium/",
+    "description": "Patricia Smith, owner of Golden Bay Organics, also offers Touch for Health Kinesiology, nutrition, and yoga through Equilibrium.",
+    "stocklist": false
+  },
+  "shopentranceway.jpg": {
+    "kind": "shop",
+    "title": "Welcome in",
+    "stocklist": true
+  },
+  "shopfloorlayout.jpg": {
+    "kind": "shop",
+    "title": "Inside the shop",
+    "stocklist": true
+  },
+  "shopfront.jpg": {
+    "kind": "shop",
+    "title": "Storefront on Commercial Street",
+    "stocklist": true
+  },
+  "shopfrontsideview.jpg": {
+    "kind": "shop",
+    "title": "Commercial Street view",
+    "stocklist": true
+  }
+}

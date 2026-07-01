@@ -9,12 +9,24 @@ const imagesDir = join(root, 'public', 'images')
 const thumbsDir = join(imagesDir, 'thumbs')
 const galleryPath = join(root, 'src', 'data', 'gallery.json')
 const stockPath = join(root, 'src', 'data', 'stock.json')
+const metaPath = join(root, 'src', 'data', 'image-meta.json')
 
 const stock = JSON.parse(readFileSync(stockPath, 'utf8'))
-const imageToProduct = new Map(stock.map((item) => [item.image, item.id]))
+const imageMeta = JSON.parse(readFileSync(metaPath, 'utf8'))
+
+/** @type {Map<string, string>} */
+const imageToProducts = new Map()
+for (const item of stock) {
+  const existing = imageToProducts.get(item.image)
+  if (existing) {
+    imageToProducts.set(item.image, `${existing},${item.id}`)
+  } else {
+    imageToProducts.set(item.image, item.id)
+  }
+}
 
 const CATEGORY_RULES = [
-  { category: 'shop', keywords: ['shop', 'storefront', 'entrance', 'floor', 'layout', 'atmosphere', 'busy', 'discount', 'calendar', 'book', 'plant', 'patricia', 'kinesiology', 'services'] },
+  { category: 'shop', keywords: ['shop', 'storefront', 'entrance', 'floor', 'layout', 'atmosphere', 'busy', 'discount', 'calendar', 'book', 'plant'] },
   { category: 'bakery', keywords: ['bread', 'pie', 'cookie', 'baked', 'frozenbread'] },
   { category: 'bulk', keywords: ['bulk', 'oat', 'rice', 'nut', 'dried', 'gried', 'medjool', 'date'] },
   { category: 'herbs', keywords: ['herb', 'spice', 'ginger', 'corriander', 'dill', 'parsley', 'tea', 'tincture', 'mushroom', 'cacao', 'coffee', 'chai'] },
@@ -72,15 +84,22 @@ for (const filename of files) {
     .webp({ quality: 80 })
     .toFile(thumbPath)
 
-  const productId = imageToProduct.get(filename) ?? null
+  const meta = imageMeta[filename] ?? {}
+  const productIds = imageToProducts.get(filename)
+  const primaryProductId = productIds?.split(',')[0] ?? null
 
   gallery.push({
     id: idFromFilename(filename),
     filename,
     thumb: thumbName,
-    title: titleFromFilename(filename),
-    category: inferCategory(filename),
-    productId,
+    title: meta.title ?? titleFromFilename(filename),
+    category: meta.kind === 'promo' ? 'promo' : meta.kind === 'shop' ? 'shop' : inferCategory(filename),
+    kind: meta.kind ?? (inferCategory(filename) === 'shop' ? 'shop' : 'stock'),
+    productId: meta.kind === 'promo' ? null : primaryProductId,
+    productIds: meta.kind === 'promo' ? [] : productIds ? productIds.split(',') : [],
+    externalUrl: meta.externalUrl ?? null,
+    description: meta.description ?? null,
+    stocklist: meta.stocklist ?? meta.kind !== 'promo',
   })
 }
 

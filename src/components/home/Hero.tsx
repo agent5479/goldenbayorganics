@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { business } from '../../data/business'
-import { assetUrl } from '../../lib/assets'
+import { assetUrl, thumbUrl } from '../../lib/assets'
 import './Hero.css'
 
 export function Hero() {
@@ -29,10 +29,13 @@ export function Hero() {
 
           <figure className="hero__figure">
             <img
-              src={assetUrl('shopfront.jpg')}
+              src={thumbUrl('shopfront.webp')}
+              srcSet={`${thumbUrl('shopfront.webp')} 480w, ${assetUrl('shopfront.jpg')} 1200w`}
+              sizes="(min-width: 900px) 540px, 100vw"
               alt="Golden Bay Organics shopfront on Commercial Street, Takaka"
               width={640}
               height={480}
+              fetchPriority="high"
             />
           </figure>
         </div>

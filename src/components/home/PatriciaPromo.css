@@ -1,0 +1,52 @@
+.patricia-promo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--paper-2);
+  box-shadow: var(--shadow);
+}
+
+@media (min-width: 768px) {
+  .patricia-promo {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+.patricia-promo__image-link {
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.patricia-promo__image-link img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.patricia-promo__image-link:hover img {
+  transform: scale(1.03);
+}
+
+.patricia-promo__body h2 {
+  margin-bottom: 0.5rem;
+}
+
+.patricia-promo__lead {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.patricia-promo__desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.patricia-promo__body .btn {
+  margin-top: 0.5rem;
+}
