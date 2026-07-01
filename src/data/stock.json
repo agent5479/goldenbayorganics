@@ -1,0 +1,182 @@
+[
+  {
+    "id": "brown-onions",
+    "name": "Brown Onions",
+    "category": "produce",
+    "price": 7.9,
+    "unit": "kg",
+    "note": "Organic · rich in quercetin",
+    "image": "freshvegetables.jpg"
+  },
+  {
+    "id": "red-onions",
+    "name": "Red Onions",
+    "category": "produce",
+    "price": 8.9,
+    "unit": "kg",
+    "note": "Organic · eat raw for maximal benefit",
+    "image": "freshvegetables.jpg"
+  },
+  {
+    "id": "heritage-apples",
+    "name": "Heritage Apples",
+    "category": "produce",
+    "price": 2.9,
+    "unit": "kg",
+    "note": "Local spray-free · Granny Smith, Stürmer & more",
+    "image": "applelocalvarietiesheritage.jpg"
+  },
+  {
+    "id": "agria-potatoes",
+    "name": "Organic Agria Potatoes",
+    "category": "produce",
+    "price": 4.0,
+    "unit": "kg",
+    "note": "Organic · while stocks last",
+    "image": "agriapotato.jpg"
+  },
+  {
+    "id": "bananas",
+    "name": "Bananas",
+    "category": "produce",
+    "price": 4.72,
+    "unit": "kg",
+    "note": "Perfectly ripe · while stocks last",
+    "image": "fuitshelf.jpg"
+  },
+  {
+    "id": "oranges",
+    "name": "Oranges",
+    "category": "produce",
+    "price": null,
+    "unit": "kg",
+    "note": "Seasonal citrus",
+    "image": "broccoliandfruits.jpg"
+  },
+  {
+    "id": "beetroot",
+    "name": "Beetroot",
+    "category": "produce",
+    "price": null,
+    "unit": "bunch",
+    "note": "Fresh organic",
+    "image": "beetroot.jpg"
+  },
+  {
+    "id": "leeks",
+    "name": "Leeks",
+    "category": "produce",
+    "price": null,
+    "unit": "each",
+    "note": "Organic",
+    "image": "leeks.jpg"
+  },
+  {
+    "id": "aubergines",
+    "name": "Aubergines",
+    "category": "produce",
+    "price": null,
+    "unit": "kg",
+    "note": "From Kokalito",
+    "image": "capsicum.jpg"
+  },
+  {
+    "id": "fresh-herbs",
+    "name": "Fresh Herbs",
+    "category": "herbs",
+    "price": null,
+    "unit": "bunch",
+    "note": "Seasonal selection",
+    "image": "corrianderanddill.jpg"
+  },
+  {
+    "id": "dried-spices",
+    "name": "Dried Spices & Ginger",
+    "category": "herbs",
+    "price": null,
+    "unit": "100g",
+    "note": "Bulk refill available",
+    "image": "ginger.jpg"
+  },
+  {
+    "id": "artisan-bread",
+    "name": "Artisan Bread",
+    "category": "bakery",
+    "price": null,
+    "unit": "loaf",
+    "note": "Fresh deliveries throughout the week",
+    "image": "fancybreads.jpg"
+  },
+  {
+    "id": "rainbow-pies",
+    "name": "Rainbow Kitchen Frozen Pies",
+    "category": "bakery",
+    "price": 9.52,
+    "unit": "each",
+    "note": "Special price · while stocks last",
+    "image": "pies.jpg"
+  },
+  {
+    "id": "rolled-oats",
+    "name": "Bulk Pantry Staples",
+    "category": "bulk",
+    "price": null,
+    "unit": "kg",
+    "note": "Scoop your own grains and legumes",
+    "image": "bulk.jpg"
+  },
+  {
+    "id": "brown-rice",
+    "name": "Dried Goods",
+    "category": "bulk",
+    "price": null,
+    "unit": "kg",
+    "note": "Organic · bulk refill",
+    "image": "griedgoods.jpg"
+  },
+  {
+    "id": "nuts-mix",
+    "name": "Medjool Dates & Nuts",
+    "category": "bulk",
+    "price": null,
+    "unit": "kg",
+    "note": "Raw and dried fruit options",
+    "image": "medjooldates.jpg"
+  },
+  {
+    "id": "turbo-tonics",
+    "name": "Turbo Tonics Turmeric Ginger Lime",
+    "category": "specialty",
+    "price": 34.0,
+    "unit": "500ml",
+    "note": "Special · immune support",
+    "image": "tinctures.jpg"
+  },
+  {
+    "id": "local-honey",
+    "name": "Exotic Nectars & Specialty",
+    "category": "specialty",
+    "price": null,
+    "unit": "jar",
+    "note": "Golden Bay and imported specialty items",
+    "image": "exoticnectars.jpg"
+  },
+  {
+    "id": "eco-cleaner",
+    "name": "Eco Dishwash & Cleaners",
+    "category": "household",
+    "price": null,
+    "unit": "bottle",
+    "note": "Refill station available",
+    "image": "dishwash.jpg"
+  },
+  {
+    "id": "laundry-powder",
+    "name": "Natural Laundry Agents",
+    "category": "household",
+    "price": null,
+    "unit": "kg",
+    "note": "Bulk refill",
+    "image": "bulklaundryagents.jpg"
+  }
+]

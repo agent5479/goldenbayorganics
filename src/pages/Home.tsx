@@ -1,0 +1,20 @@
+import { SiteHead } from '../components/layout/SiteHead'
+import { Hero } from '../components/home/Hero'
+import { StatsStrip } from '../components/home/StatsStrip'
+import { FeaturedSpecial } from '../components/home/FeaturedSpecial'
+import { CategoryGrid } from '../components/home/CategoryGrid'
+import { RecentUpdates } from '../components/home/RecentUpdates'
+import { buildLocalBusinessJsonLd, pageMeta } from '../lib/seo'
+
+export function Component() {
+  return (
+    <>
+      <SiteHead meta={pageMeta.home} jsonLd={buildLocalBusinessJsonLd()} />
+      <Hero />
+      <StatsStrip />
+      <FeaturedSpecial />
+      <CategoryGrid />
+      <RecentUpdates />
+    </>
+  )
+}

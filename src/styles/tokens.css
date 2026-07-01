@@ -1,0 +1,21 @@
+:root {
+  --paper: #faf8f4;
+  --paper-2: #f3efe8;
+  --paper-3: #ebe5db;
+  --ink: #2c2a24;
+  --muted: #6b6558;
+  --sage: #5a7a52;
+  --sage-light: #e8efe6;
+  --terracotta: #b86b3f;
+  --olive: #7a8450;
+  --border: rgba(44, 42, 36, 0.12);
+  --border-strong: rgba(44, 42, 36, 0.22);
+  --max-w: 720px;
+  --max-w-wide: 1080px;
+  --header-h: 48px;
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --radius: 4px;
+  --shadow: 0 1px 0 var(--border);
+}

@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.vite-react-ssg-temp/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Local overrides
+*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Editor and OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# TypeScript
+*.tsbuildinfo
+
+# Test / coverage
+coverage/
+
+# Source image dump (copies live in public/images/)
+datadump/

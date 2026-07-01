@@ -1,0 +1,51 @@
+[
+  {
+    "id": "rainbow-pies",
+    "date": "2026-05-27",
+    "title": "Rainbow Kitchen frozen pies",
+    "body": "Rainbow Kitchen frozen pies are $9.52 each. May the pie be with you! Special runs through June.",
+    "featured": true
+  },
+  {
+    "id": "onions",
+    "date": "2026-05-27",
+    "title": "Organic onion pricing",
+    "body": "Red onions $8.90/kg and brown onions $7.90/kg. We're hoping to continue offering them at these prices.",
+    "featured": false
+  },
+  {
+    "id": "bananas",
+    "date": "2026-05-27",
+    "title": "Perfectly ripe bananas",
+    "body": "Perfectly ripe bananas $4.72/kg while stock lasts.",
+    "featured": false
+  },
+  {
+    "id": "winter-hours",
+    "date": "2026-05-08",
+    "title": "Winter Saturday hours",
+    "body": "Saturdays we are now open 10am to 2pm. Same great service, same wonderful products.",
+    "featured": false
+  },
+  {
+    "id": "turbo-tonics",
+    "date": "2026-05-06",
+    "title": "Turbo Tonics special",
+    "body": "500ml bottles now $34.00. Super powerful Turmeric Ginger Lime Juice — perfect for immune support.",
+    "featured": false
+  },
+  {
+    "id": "apples",
+    "date": "2026-04-26",
+    "title": "Heritage apples",
+    "body": "All apples $2.90/kg. Local heritage varieties — helping you eat well and affordably.",
+    "featured": false
+  },
+  {
+    "id": "potatoes",
+    "date": "2026-04-15",
+    "title": "Organic Agria potatoes",
+    "body": "Organic Agria potatoes only $4/kg for the week or while stock lasts.",
+    "featured": false
+  }
+]

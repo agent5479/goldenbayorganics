@@ -1,0 +1,21 @@
+.stocklist-intro {
+  max-width: 52ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+}
+
+.stocklist-jump {
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.stocklist-jump a {
+  color: var(--sage);
+  text-decoration: none;
+}
+
+.stocklist-jump a:hover {
+  text-decoration: underline;
+  color: var(--terracotta);
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf8f4"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2c2a24" stroke-width="0.5" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <text x="80" y="120" font-family="Georgia, serif" font-size="28" fill="#5a7a52" letter-spacing="4">ORGANIC · TAKAKA · GOLDEN BAY</text>
+  <text x="80" y="280" font-family="Georgia, serif" font-size="72" font-weight="600" fill="#2c2a24">Golden Bay Organics</text>
+  <text x="80" y="360" font-family="Georgia, serif" font-size="32" fill="#6b6558">Herbs · Produce · Bulk foods &amp; more</text>
+  <text x="80" y="520" font-family="monospace" font-size="22" fill="#5a7a52">47 Commercial Street · Takaka 7110</text>
+  <circle cx="1080" cy="120" r="40" fill="none" stroke="#5a7a52" stroke-width="3"/>
+</svg>

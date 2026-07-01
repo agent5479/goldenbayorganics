@@ -1,0 +1,92 @@
+.command-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-h);
+  background: rgba(250, 248, 244, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.command-bar__inner {
+  max-width: var(--max-w-wide);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.command-bar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--ink);
+  min-width: 0;
+}
+
+.command-bar__brand:hover {
+  color: var(--sage);
+}
+
+.command-bar__mark {
+  font-size: 1rem;
+  color: var(--sage);
+  flex-shrink: 0;
+}
+
+.command-bar__name {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.command-bar__nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.15rem;
+}
+
+.command-bar__nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.command-bar__sep {
+  margin: 0 0.35rem;
+  color: var(--muted);
+  opacity: 0.5;
+  font-size: 0.75rem;
+}
+
+.command-bar__link {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  padding: 0.2rem 0;
+}
+
+.command-bar__link:hover,
+.command-bar__link--active {
+  color: var(--sage);
+}
+
+@media (max-width: 640px) {
+  .command-bar__name {
+    max-width: 8rem;
+  }
+}

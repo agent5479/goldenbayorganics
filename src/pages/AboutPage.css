@@ -1,0 +1,18 @@
+.about-prose h2 {
+  margin-top: 2rem;
+}
+
+.about-prose ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: var(--muted);
+}
+
+.about-prose li {
+  margin-bottom: 0.35rem;
+}
+
+.about-prose em {
+  font-style: italic;
+  color: var(--sage);
+}
