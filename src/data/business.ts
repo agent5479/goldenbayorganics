@@ -24,10 +24,10 @@ export const business = {
 } as const
 
 export const SHOP_LANDING_PHOTOS = [
-  'shopfront.jpg',
+  'shopfrontsideview.jpg',
   'shopentranceway.jpg',
   'shopfloorlayout.jpg',
-  'shopfrontsideview.jpg',
+  'shopfront.jpg',
 ] as const
 
 export const openingHours = [

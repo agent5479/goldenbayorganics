@@ -1,46 +1,170 @@
+/* Equilibrium-inspired miniature — mirrors agent5479.github.io/equilibrium hero */
+
+.patricia-promo-section {
+  padding: 3.5rem 1.5rem;
+}
+
 .patricia-promo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.patricia-promo__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(184, 81, 127, 0.14), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(117, 50, 80, 0.1), transparent 50%);
+  pointer-events: none;
+}
+
+.patricia-promo__panel {
+  position: relative;
+  padding: 2rem 1.75rem 2.25rem;
+  background: linear-gradient(180deg, #fdf7f9 0%, #f9eff3 100%);
+  border: 1px solid #ecdce4;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(117, 50, 80, 0.1);
+}
+
+.patricia-promo__logo-link {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 1.5rem;
+}
+
+.patricia-promo__logo {
+  display: block;
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+}
+
+.patricia-promo__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  align-items: center;
-  padding: 2rem;
-  border-radius: var(--radius-lg);
-  background: var(--paper-2);
-  box-shadow: var(--shadow);
+  gap: 1.75rem;
+  align-items: start;
 }
 
 @media (min-width: 768px) {
-  .patricia-promo {
-    grid-template-columns: 280px 1fr;
+  .patricia-promo__grid {
+    grid-template-columns: minmax(0, 300px) 1fr;
+    gap: 2.25rem;
   }
 }
 
-.patricia-promo__image-link {
-  display: block;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  aspect-ratio: 3 / 4;
+.patricia-promo__media {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
-.patricia-promo__image-link .smart-image {
+@media (min-width: 768px) {
+  .patricia-promo__media {
+    margin: 0;
+  }
+}
+
+.patricia-promo__image-frame {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(117, 50, 80, 0.12);
+  background: #fff;
+  aspect-ratio: 4 / 3;
+}
+
+.patricia-promo__image-frame .smart-image {
   height: 100%;
 }
 
+.patricia-promo__image-frame .smart-image img {
+  object-fit: contain;
+  background: #fff;
+}
+
+.patricia-promo__eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #b8517f;
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+}
+
 .patricia-promo__body h2 {
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.35rem;
+  color: #753250;
+  font-family: var(--font-display);
+}
+
+.patricia-promo__tagline {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #753250;
+  margin: 0 0 1rem;
+  font-family: var(--font-body);
 }
 
 .patricia-promo__lead {
-  color: var(--muted);
-  font-size: 1.05rem;
+  color: #555;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+
+.patricia-promo__lead a {
+  color: #b8517f;
+  font-weight: 600;
 }
 
 .patricia-promo__desc {
-  color: var(--muted);
-  font-size: 0.95rem;
+  color: #666;
+  font-size: 0.92rem;
+  margin-bottom: 1.25rem;
 }
 
-.patricia-promo__body .btn {
-  margin-top: 0.5rem;
+.patricia-promo__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.patricia-promo__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.2rem;
+  border-radius: 3px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.patricia-promo__btn--primary {
+  background: #b8517f;
+  color: #fff !important;
+  border: 2px solid #b8517f;
+}
+
+.patricia-promo__btn--primary:hover {
+  background: #d46a99;
+  border-color: #d46a99;
+  color: #fff !important;
+}
+
+.patricia-promo__btn--secondary {
+  background: transparent;
+  color: #b8517f !important;
+  border: 2px solid #b8517f;
+}
+
+.patricia-promo__btn--secondary:hover {
+  background: #b8517f;
+  color: #fff !important;
 }
