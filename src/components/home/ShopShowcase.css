@@ -24,20 +24,17 @@
   box-shadow: var(--shadow);
 }
 
-.shop-showcase__item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.shop-showcase__item .smart-image {
   min-height: 160px;
+}
+
+.shop-showcase__item--1 .smart-image {
+  min-height: 200px;
 }
 
 .shop-showcase__item--1 {
   grid-column: 1 / -1;
   aspect-ratio: 21 / 9;
-}
-
-.shop-showcase__item--1 img {
-  min-height: 200px;
 }
 
 .shop-showcase__item--2,

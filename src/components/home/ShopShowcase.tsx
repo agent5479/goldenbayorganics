@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { getShopLandingPhotos } from '../../lib/gallery'
-import { thumbUrl } from '../../lib/assets'
+import { SmartImage } from '../stock/SmartImage'
 import './ShopShowcase.css'
 
 export function ShopShowcase() {
@@ -22,11 +22,11 @@ export function ShopShowcase() {
               key={photo.id}
               className={`shop-showcase__item shop-showcase__item--${index + 1}`}
             >
-              <img
-                src={thumbUrl(photo.thumb)}
+              <SmartImage
+                thumb={photo.thumb}
+                filename={photo.filename}
                 alt={photo.title}
                 loading={index < 2 ? 'eager' : 'lazy'}
-                decoding="async"
               />
               <figcaption className="shop-showcase__caption">{photo.title}</figcaption>
             </figure>

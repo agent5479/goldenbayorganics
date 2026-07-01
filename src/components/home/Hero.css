@@ -54,11 +54,10 @@
   overflow: hidden;
   background: var(--paper-2);
   box-shadow: var(--shadow);
+  aspect-ratio: 4 / 3;
 }
 
-.hero__figure img {
-  width: 100%;
+.hero__figure .smart-image {
   height: 100%;
-  object-fit: cover;
-  aspect-ratio: 4 / 3;
+  min-height: 240px;
 }

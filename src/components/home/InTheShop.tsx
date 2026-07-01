@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { getPreviewGallery } from '../../lib/gallery'
-import { thumbUrl } from '../../lib/assets'
+import { SmartImage } from '../stock/SmartImage'
 import './InTheShop.css'
 
 export function InTheShop() {
@@ -24,7 +24,7 @@ export function InTheShop() {
               className="in-the-shop__tile"
               aria-label={item.title}
             >
-              <img src={thumbUrl(item.thumb)} alt={item.title} loading="lazy" decoding="async" />
+              <SmartImage thumb={item.thumb} filename={item.filename} alt={item.title} />
             </Link>
           ))}
         </div>

@@ -18,9 +18,7 @@ export function Component() {
   const items = getStocklistGallery(category)
 
   const handleSelect = (item: GalleryItemWithProduct) => {
-    if (window.matchMedia('(max-width: 768px)').matches) {
-      setSelected(item)
-    }
+    setSelected(item)
   }
 
   return (
@@ -31,13 +29,14 @@ export function Component() {
           <span className="chip chip--accent">In store</span>
           <h1>Stocklist</h1>
           <p className="page-subtitle stocklist-intro">
-            Browse what's in store. Prices and availability change — call{' '}
+            Browse what's in store. Tap any photo for details. Prices change — call{' '}
             <a href="tel:+6435258677">03 525 8677</a> or visit us to confirm.
           </p>
+          <p className="stocklist-count label">{items.length} photos shown</p>
         </div>
       </header>
 
-      <div className="section">
+      <div className="section stocklist-section">
         <div className="section__inner">
           <div className="stocklist-filters" role="tablist" aria-label="Filter by category">
             {galleryFilterOptions.map((opt) => (
@@ -47,7 +46,10 @@ export function Component() {
                 role="tab"
                 aria-selected={category === opt.id}
                 className={`stocklist-filter${category === opt.id ? ' stocklist-filter--active' : ''}`}
-                onClick={() => setCategory(opt.id)}
+                onClick={() => {
+                  setCategory(opt.id)
+                  setSelected(null)
+                }}
               >
                 {opt.label}
               </button>

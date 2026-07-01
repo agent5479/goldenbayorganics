@@ -1,6 +1,6 @@
 import { business } from '../../data/business'
 import { getPatriciaPromo } from '../../lib/gallery'
-import { thumbUrl } from '../../lib/assets'
+import { SmartImage } from '../stock/SmartImage'
 import './PatriciaPromo.css'
 
 export function PatriciaPromo() {
@@ -19,11 +19,10 @@ export function PatriciaPromo() {
             rel="noopener noreferrer"
             className="patricia-promo__image-link"
           >
-            <img
-              src={thumbUrl(promo.thumb)}
+            <SmartImage
+              thumb={promo.thumb}
+              filename={promo.filename}
               alt={`${owner.name} — ${owner.servicesName}`}
-              loading="lazy"
-              decoding="async"
             />
           </a>
           <div className="patricia-promo__body">

@@ -1,5 +1,13 @@
 .stocklist-intro {
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
+}
+
+.stocklist-count {
+  margin: 0;
+}
+
+.stocklist-section {
+  padding-top: 2rem;
 }
 
 .stocklist-filters {

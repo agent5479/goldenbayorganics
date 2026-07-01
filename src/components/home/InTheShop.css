@@ -13,8 +13,8 @@
 
 .in-the-shop__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
 }
 
 .in-the-shop__tile {
@@ -23,15 +23,13 @@
   overflow: hidden;
   display: block;
   transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: var(--shadow);
 }
 
 .in-the-shop__tile:hover {
   transform: scale(1.03);
-  box-shadow: var(--shadow);
 }
 
-.in-the-shop__tile img {
-  width: 100%;
+.in-the-shop__tile .smart-image {
   height: 100%;
-  object-fit: cover;
 }

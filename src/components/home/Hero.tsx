@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { business } from '../../data/business'
-import { assetUrl, thumbUrl } from '../../lib/assets'
+import { SmartImage } from '../stock/SmartImage'
 import './Hero.css'
 
 export function Hero() {
@@ -28,14 +28,11 @@ export function Hero() {
           </div>
 
           <figure className="hero__figure">
-            <img
-              src={thumbUrl('shopfront.webp')}
-              srcSet={`${thumbUrl('shopfront.webp')} 480w, ${assetUrl('shopfront.jpg')} 1200w`}
-              sizes="(min-width: 900px) 540px, 100vw"
+            <SmartImage
+              thumb="shopfront.webp"
+              filename="shopfront.jpg"
               alt="Golden Bay Organics shopfront on Commercial Street, Takaka"
-              width={640}
-              height={480}
-              fetchPriority="high"
+              loading="eager"
             />
           </figure>
         </div>
