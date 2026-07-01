@@ -1,5 +1,4 @@
 .stats-strip {
-  border-bottom: 1px solid var(--border);
   background: var(--paper);
 }
 
@@ -20,12 +19,8 @@
   gap: 0.5rem;
 }
 
-.stats-strip__sep {
-  display: none;
-}
-
 .stats-strip__value {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--sage);

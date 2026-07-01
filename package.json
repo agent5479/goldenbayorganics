@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite-react-ssg dev",
-    "build": "vite-react-ssg build",
+    "generate:images": "node scripts/generate-images.mjs",
+    "build": "npm run generate:images && vite-react-ssg build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
+    "sharp": "^0.34.2",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
     "vite-react-ssg": "^0.8.9"

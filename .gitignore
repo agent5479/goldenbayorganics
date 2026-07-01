@@ -31,3 +31,6 @@ coverage/
 
 # Source image dump (copies live in public/images/)
 datadump/
+
+# Generated thumbnails (rebuilt by npm run generate:images)
+public/images/thumbs/

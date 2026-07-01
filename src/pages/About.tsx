@@ -10,15 +10,11 @@ export function Component() {
       <SiteHead meta={pageMeta.about} />
       <header className="page-header">
         <div className="page-header__inner page-header__inner--narrow">
-          <div className="folio">
-            <span className="chip chip--accent">Local</span>
-            <span className="folio__sep">·</span>
-            <span className="mono">Community</span>
-          </div>
+          <span className="chip chip--accent">Local & community</span>
           <h1>
-            More than just <em>food</em>.
+            More than just <em>food</em>
           </h1>
-          <p>{business.tagline}</p>
+          <p className="page-subtitle">{business.tagline}</p>
         </div>
       </header>
 
@@ -49,7 +45,7 @@ export function Component() {
           <p>
             We are building an online stocklist so you can see what is in store before you visit —
             and eventually order online. For now, browse our{' '}
-            <Link to="/stocklist">current stocklist</Link>, check our{' '}
+            <Link to="/stocklist">photo stocklist</Link>, check our{' '}
             <a href={business.facebook} target="_blank" rel="noopener noreferrer">
               Facebook page
             </a>{' '}

@@ -15,22 +15,22 @@ export function RecentUpdates() {
     .slice(0, 6)
 
   return (
-    <section className="section section--alt">
+    <section className="section">
       <div className="section__inner">
-        <p className="section__label mono">Fresh signal · Store updates</p>
+        <p className="section__label label">Latest from the shop</p>
         <h2>Recent specials & news</h2>
-        <ol className="recent-list">
-          {recent.map((item, i) => (
+        <ul className="recent-list">
+          {recent.map((item) => (
             <li key={item.id} className="recent-list__item">
-              <span className="recent-list__index mono">{String(i + 1).padStart(2, '0')}</span>
+              <time className="recent-list__date" dateTime={item.date}>
+                {formatDate(item.date)}
+              </time>
               <div className="recent-list__body">
                 <span className="recent-list__title">{item.title}</span>
-                <span className="recent-list__date mono">{formatDate(item.date)}</span>
               </div>
-              <span className="recent-list__kind mono">Update</span>
             </li>
           ))}
-        </ol>
+        </ul>
       </div>
     </section>
   )

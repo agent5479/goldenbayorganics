@@ -16,7 +16,6 @@ export function StockCategory({ categoryId }: StockCategoryProps) {
   return (
     <section id={categoryId} className="stock-category">
       <div className="stock-category__head">
-        <span className="mono stock-category__index">{meta.index}</span>
         <h2 className="stock-category__title">{meta.label}</h2>
         <p className="stock-category__desc">{meta.description}</p>
       </div>

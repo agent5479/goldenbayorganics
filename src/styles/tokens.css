@@ -8,14 +8,17 @@
   --sage-light: #e8efe6;
   --terracotta: #b86b3f;
   --olive: #7a8450;
-  --border: rgba(44, 42, 36, 0.12);
-  --border-strong: rgba(44, 42, 36, 0.22);
+  --border: rgba(44, 42, 36, 0.1);
+  --border-strong: rgba(44, 42, 36, 0.18);
   --max-w: 720px;
   --max-w-wide: 1080px;
-  --header-h: 48px;
-  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-  --radius: 4px;
-  --shadow: 0 1px 0 var(--border);
+  --header-h: 52px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+  --radius: var(--radius-md);
+  --font-display: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-body: 'Nunito Sans', system-ui, -apple-system, sans-serif;
+  --shadow: 0 2px 12px rgba(44, 42, 36, 0.06);
 }

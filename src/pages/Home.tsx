@@ -3,6 +3,7 @@ import { Hero } from '../components/home/Hero'
 import { StatsStrip } from '../components/home/StatsStrip'
 import { FeaturedSpecial } from '../components/home/FeaturedSpecial'
 import { CategoryGrid } from '../components/home/CategoryGrid'
+import { InTheShop } from '../components/home/InTheShop'
 import { RecentUpdates } from '../components/home/RecentUpdates'
 import { buildLocalBusinessJsonLd, pageMeta } from '../lib/seo'
 
@@ -13,6 +14,7 @@ export function Component() {
       <Hero />
       <StatsStrip />
       <FeaturedSpecial />
+      <InTheShop />
       <CategoryGrid />
       <RecentUpdates />
     </>

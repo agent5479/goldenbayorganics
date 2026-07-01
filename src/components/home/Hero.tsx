@@ -5,20 +5,14 @@ import './Hero.css'
 
 export function Hero() {
   return (
-    <section className="hero grid-bg">
+    <section className="hero">
       <div className="hero__inner">
         <div className="hero__grid">
           <div className="hero__copy">
-            <div className="folio">
-              <span className="chip chip--accent">Organic</span>
-              <span className="folio__sep">·</span>
-              <span className="mono">Takaka</span>
-              <span className="folio__sep">·</span>
-              <span className="mono">Golden Bay</span>
-            </div>
+            <span className="chip chip--accent">Organic grocer · Takaka</span>
 
             <h1 className="hero__title">
-              Your local <em>organic</em> grocer.
+              Your local <em>organic</em> grocer
             </h1>
 
             <p className="hero__tagline">{business.tagline}</p>

@@ -1,21 +1,38 @@
 .stocklist-intro {
-  max-width: 52ch;
-  color: var(--muted);
-  font-size: 1.05rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0;
 }
 
-.stocklist-jump {
-  font-size: 0.68rem;
-  color: var(--muted);
+.stocklist-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.stocklist-jump a {
+.stocklist-filter {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--paper-2);
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.stocklist-filter:hover {
   color: var(--sage);
-  text-decoration: none;
+  background: var(--sage-light);
 }
 
-.stocklist-jump a:hover {
-  text-decoration: underline;
-  color: var(--terracotta);
+.stocklist-filter--active {
+  background: var(--sage);
+  color: #fff;
+}
+
+.stocklist-filter--active:hover {
+  background: #4d6a46;
+  color: #fff;
 }

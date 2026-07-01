@@ -28,12 +28,12 @@ export const openingHours = [
 ] as const
 
 export const categories = [
-  { id: 'produce', index: '01', label: 'FRESH PRODUCE', description: 'Seasonal fruit and vegetables, local and organic' },
-  { id: 'herbs', index: '02', label: 'HERBS & SPICES', description: 'Fresh herbs, dried spices, and botanicals' },
-  { id: 'bakery', index: '03', label: 'BREADS & BAKERY', description: 'Artisan breads and baked goods' },
-  { id: 'bulk', index: '04', label: 'BULK FOODS', description: 'Grains, nuts, legumes, and pantry staples' },
-  { id: 'specialty', index: '05', label: 'SPECIALTY FOODS', description: 'Local and imported speciality items' },
-  { id: 'household', index: '06', label: 'CLEANERS & HOUSEHOLD', description: 'Eco-friendly cleaners and household goods' },
+  { id: 'produce', label: 'Fresh produce', description: 'Seasonal fruit and vegetables, local and organic' },
+  { id: 'herbs', label: 'Herbs & spices', description: 'Fresh herbs, dried spices, and botanicals' },
+  { id: 'bakery', label: 'Breads & bakery', description: 'Artisan breads and baked goods' },
+  { id: 'bulk', label: 'Bulk foods', description: 'Grains, nuts, legumes, and pantry staples' },
+  { id: 'specialty', label: 'Specialty foods', description: 'Local and imported speciality items' },
+  { id: 'household', label: 'Cleaners & household', description: 'Eco-friendly cleaners and household goods' },
 ] as const
 
 export type CategoryId = (typeof categories)[number]['id']

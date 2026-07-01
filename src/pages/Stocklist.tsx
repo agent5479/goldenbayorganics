@@ -1,51 +1,68 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { categories } from '../data/business'
 import { SiteHead } from '../components/layout/SiteHead'
-import { StockCategory } from '../components/stock/StockCategory'
+import { PhotoGrid } from '../components/stock/PhotoGrid'
+import { PhotoDetailPanel } from '../components/stock/PhotoDetailPanel'
+import {
+  galleryFilterOptions,
+  getGalleryItems,
+  type GalleryCategory,
+  type GalleryItemWithProduct,
+} from '../lib/gallery'
 import { pageMeta } from '../lib/seo'
 import './StocklistPage.css'
 
 export function Component() {
+  const [category, setCategory] = useState<GalleryCategory>('all')
+  const [selected, setSelected] = useState<GalleryItemWithProduct | null>(null)
+  const items = getGalleryItems(category)
+
+  const handleSelect = (item: GalleryItemWithProduct) => {
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      setSelected(item)
+    }
+  }
+
   return (
     <>
       <SiteHead meta={pageMeta.stocklist} />
       <header className="page-header">
         <div className="page-header__inner">
-          <div className="folio">
-            <span className="chip chip--accent">In store</span>
-            <span className="folio__sep">·</span>
-            <span className="mono">Updated regularly</span>
-          </div>
+          <span className="chip chip--accent">In store</span>
           <h1>Stocklist</h1>
-          <p className="stocklist-intro">
-            A showcase of what we carry. Prices and availability change — call{' '}
-            <a href="tel:+6435258677">03 525 8677</a> or visit us to confirm. Online ordering
-            coming soon.
+          <p className="page-subtitle stocklist-intro">
+            Browse what's in store. Prices and availability change — call{' '}
+            <a href="tel:+6435258677">03 525 8677</a> or visit us to confirm.
           </p>
-          <nav className="stocklist-jump mono" aria-label="Jump to category">
-            {categories.map((cat, i) => (
-              <span key={cat.id}>
-                {i > 0 && <span className="folio__sep"> · </span>}
-                <a href={`#${cat.id}`}>{cat.label}</a>
-              </span>
-            ))}
-          </nav>
         </div>
       </header>
 
       <div className="section">
         <div className="section__inner">
-          {categories.map((cat) => (
-            <StockCategory key={cat.id} categoryId={cat.id} />
-          ))}
+          <div className="stocklist-filters" role="tablist" aria-label="Filter by category">
+            {galleryFilterOptions.map((opt) => (
+              <button
+                key={opt.id}
+                type="button"
+                role="tab"
+                aria-selected={category === opt.id}
+                className={`stocklist-filter${category === opt.id ? ' stocklist-filter--active' : ''}`}
+                onClick={() => setCategory(opt.id)}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+
+          <PhotoGrid items={items} onSelect={handleSelect} selectedId={selected?.id ?? null} />
         </div>
       </div>
 
       <section className="section section--alt">
         <div className="section__inner section__inner--narrow">
-          <p className="mono section__label">Note</p>
+          <p className="label section__label">A note</p>
           <p>
-            This list is maintained manually. For bulk orders or to check specific items, please{' '}
+            Photos show a sample of what we carry. For bulk orders or to check specific items, please{' '}
             <Link to="/visit">visit the shop</Link> or message us on{' '}
             <a
               href="https://www.facebook.com/profile.php?id=100092461392927"
@@ -58,6 +75,8 @@ export function Component() {
           </p>
         </div>
       </section>
+
+      <PhotoDetailPanel item={selected} onClose={() => setSelected(null)} />
     </>
   )
 }

@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import type { StockItem } from '../../lib/stock'
 import { formatPrice } from '../../lib/stock'
-import { PLACEHOLDER_COLORS, assetUrl } from '../../lib/assets'
+import { PLACEHOLDER_COLORS, assetUrl, thumbUrl } from '../../lib/assets'
 import './ProductCard.css'
 
 interface ProductCardProps {
   item: StockItem
+}
+
+function thumbFilename(image: string): string {
+  return image.replace(/\.jpe?g$/i, '.webp')
 }
 
 export function ProductCard({ item }: ProductCardProps) {
@@ -17,9 +21,10 @@ export function ProductCard({ item }: ProductCardProps) {
       <div className="product-card__media">
         {!imgError ? (
           <img
-            src={assetUrl(item.image)}
+            src={thumbUrl(thumbFilename(item.image))}
             alt={item.name}
             loading="lazy"
+            decoding="async"
             onError={() => setImgError(true)}
           />
         ) : (
@@ -28,13 +33,13 @@ export function ProductCard({ item }: ProductCardProps) {
             style={{ background: `linear-gradient(135deg, ${placeholderColor}22, ${placeholderColor}44)` }}
             aria-hidden="true"
           >
-            <span className="mono">{item.category}</span>
+            <span className="label">{item.category}</span>
           </div>
         )}
       </div>
       <div className="product-card__body">
         <h3 className="product-card__name">{item.name}</h3>
-        <p className="product-card__price mono">{formatPrice(item.price, item.unit)}</p>
+        <p className="product-card__price label">{formatPrice(item.price, item.unit)}</p>
         <p className="product-card__note">{item.note}</p>
       </div>
     </article>

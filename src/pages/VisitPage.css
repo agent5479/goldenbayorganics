@@ -6,9 +6,9 @@
 
 .visit-card {
   padding: 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-md);
   background: var(--paper-2);
+  box-shadow: var(--shadow);
 }
 
 .visit-card--wide {
@@ -16,13 +16,11 @@
 }
 
 .visit-card__label {
-  color: var(--muted);
-  font-size: 0.65rem;
   margin: 0 0 0.5rem;
 }
 
 .visit-card__value {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1.15rem;
   margin: 0 0 1rem;
 }
@@ -52,10 +50,10 @@
 }
 
 .visit-map {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--paper-2);
+  box-shadow: var(--shadow);
 }
 
 .visit-map iframe {

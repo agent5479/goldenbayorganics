@@ -3,10 +3,6 @@ import { business, openingHours } from '../../data/business'
 import './Footer.css'
 
 export function Footer() {
-  const weekdayHours = openingHours.slice(0, 5).every((r) => r.hours === '9am – 5pm')
-    ? 'Mon–Fri 9am – 5pm'
-    : null
-
   return (
     <footer className="footer">
       <div className="footer__inner">
@@ -19,21 +15,13 @@ export function Footer() {
         </div>
 
         <div className="footer__col">
-          <p className="mono footer__label">Hours</p>
-          {weekdayHours ? (
-            <p className="footer__muted">{weekdayHours}</p>
-          ) : (
-            openingHours.map((row) => (
-              <p key={row.day} className="footer__muted">
-                {row.day}: {row.hours}
-              </p>
-            ))
-          )}
+          <p className="label footer__label">Hours</p>
+          <p className="footer__muted">Mon–Fri 9am – 5pm</p>
           <p className="footer__muted">Sat 10am – 2pm · Sun closed</p>
         </div>
 
         <div className="footer__col">
-          <p className="mono footer__label">Connect</p>
+          <p className="label footer__label">Connect</p>
           <p>
             <a href={business.facebook} target="_blank" rel="noopener noreferrer">
               Facebook
@@ -49,7 +37,7 @@ export function Footer() {
       </div>
 
       <div className="footer__bottom">
-        <p className="mono">© {new Date().getFullYear()} {business.name} · Takaka, Golden Bay</p>
+        <p>© {new Date().getFullYear()} {business.name} · Takaka, Golden Bay</p>
       </div>
     </footer>
   )

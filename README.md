@@ -43,12 +43,15 @@ Pushes to `main` trigger [`.github/workflows/deploy.yml`](.github/workflows/depl
 
 ## Images
 
-Add photos to `public/images/` with descriptive names, for example:
+Add photos to `public/images/` as JPG files. On build, `npm run generate:images` creates WebP thumbnails in `public/images/thumbs/` and updates [`src/data/gallery.json`](src/data/gallery.json).
 
-- `produce-apples.jpg`
-- `produce-onions.jpg`
-- `bakery-pies.jpg`
-- `storefront.jpg` (optional hero/OG image — update `src/lib/seo.ts` if you change the default OG path)
+To regenerate thumbnails locally:
+
+```bash
+npm run generate:images
+```
+
+Link products to photos by setting the `image` filename in [`src/data/stock.json`](src/data/stock.json) — the gallery script matches them automatically.
 
 ## Future: Firebase admin
 

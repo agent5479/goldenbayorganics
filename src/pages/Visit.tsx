@@ -12,20 +12,15 @@ export function Component() {
       <SiteHead meta={pageMeta.visit} jsonLd={buildLocalBusinessJsonLd()} />
       <header className="page-header">
         <div className="page-header__inner page-header__inner--narrow">
-          <div className="folio">
-            <span className="mono">Takaka</span>
-            <span className="folio__sep">·</span>
-            <span className="mono">Golden Bay</span>
-          </div>
           <h1>Visit us</h1>
-          <p>We would love to see you at the shop on Commercial Street.</p>
+          <p className="page-subtitle">We would love to see you at the shop on Commercial Street.</p>
         </div>
       </header>
 
       <div className="section">
         <div className="section__inner visit-grid">
           <div className="visit-card">
-            <p className="mono visit-card__label">Address</p>
+            <p className="label visit-card__label">Address</p>
             <p className="visit-card__value">{business.address.full}</p>
             <a
               href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
@@ -38,7 +33,7 @@ export function Component() {
           </div>
 
           <div className="visit-card">
-            <p className="mono visit-card__label">Phone</p>
+            <p className="label visit-card__label">Phone</p>
             <p className="visit-card__value">
               <a href={`tel:${business.phoneTel}`}>{business.phone}</a>
             </p>
@@ -46,7 +41,7 @@ export function Component() {
           </div>
 
           <div className="visit-card">
-            <p className="mono visit-card__label">Facebook</p>
+            <p className="label visit-card__label">Facebook</p>
             <p className="visit-card__value">
               <a href={business.facebook} target="_blank" rel="noopener noreferrer">
                 Golden Bay Organics — Takaka
@@ -56,7 +51,7 @@ export function Component() {
           </div>
 
           <div className="visit-card visit-card--wide">
-            <p className="mono visit-card__label">Opening hours</p>
+            <p className="label visit-card__label">Opening hours</p>
             <table className="hours-table">
               <tbody>
                 {openingHours.map((row) => (
@@ -73,7 +68,7 @@ export function Component() {
 
       <section className="section section--alt">
         <div className="section__inner">
-          <p className="mono section__label">Map</p>
+          <p className="label section__label">Map</p>
           <div className="visit-map">
             <iframe
               title="Map to Golden Bay Organics"
