@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { SiteHead } from '../components/layout/SiteHead'
 import { PhotoGrid } from '../components/stock/PhotoGrid'
 import { PhotoDetailPanel } from '../components/stock/PhotoDetailPanel'
 import {
   galleryFilterOptions,
   getStocklistGallery,
+  parseGalleryCategory,
   type GalleryCategory,
   type GalleryItemWithProduct,
 } from '../lib/gallery'
@@ -13,12 +14,22 @@ import { pageMeta } from '../lib/seo'
 import './StocklistPage.css'
 
 export function Component() {
-  const [category, setCategory] = useState<GalleryCategory>('all')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const category = parseGalleryCategory(searchParams.get('category'))
   const [selected, setSelected] = useState<GalleryItemWithProduct | null>(null)
   const items = getStocklistGallery(category)
 
   const handleSelect = (item: GalleryItemWithProduct) => {
     setSelected(item)
+  }
+
+  const setCategory = (next: GalleryCategory) => {
+    setSelected(null)
+    if (next === 'all') {
+      setSearchParams({})
+    } else {
+      setSearchParams({ category: next })
+    }
   }
 
   return (
@@ -46,10 +57,7 @@ export function Component() {
                 role="tab"
                 aria-selected={category === opt.id}
                 className={`stocklist-filter${category === opt.id ? ' stocklist-filter--active' : ''}`}
-                onClick={() => {
-                  setCategory(opt.id)
-                  setSelected(null)
-                }}
+                onClick={() => setCategory(opt.id)}
               >
                 {opt.label}
               </button>

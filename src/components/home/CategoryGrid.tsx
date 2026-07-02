@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { categories } from '../../data/business'
+import { stocklistCategoryUrl } from '../../lib/gallery'
 import { getStockByCategory } from '../../lib/stock'
 import './CategoryGrid.css'
 
@@ -13,14 +14,17 @@ export function CategoryGrid() {
           {categories.map((cat) => {
             const count = getStockByCategory(cat.id).length
             return (
-              <article key={cat.id} className="category-card">
+              <Link
+                key={cat.id}
+                to={stocklistCategoryUrl(cat.id)}
+                className="category-card"
+                aria-label={`Browse ${cat.label} — ${count} items listed`}
+              >
                 <h3 className="category-card__title">{cat.label}</h3>
                 <p className="category-card__desc">{cat.description}</p>
                 <p className="category-card__count label">{count} items listed</p>
-                <Link to={`/stocklist`} className="category-card__link">
-                  Browse photos →
-                </Link>
-              </article>
+                <span className="category-card__cta">Browse photos →</span>
+              </Link>
             )
           })}
         </div>

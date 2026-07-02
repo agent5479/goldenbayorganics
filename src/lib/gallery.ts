@@ -42,6 +42,19 @@ export const galleryFilterOptions: { id: GalleryCategory; label: string }[] = [
   { id: 'shop', label: 'Shop' },
 ]
 
+const galleryCategoryIds = new Set(galleryFilterOptions.map((opt) => opt.id))
+
+export function parseGalleryCategory(value: string | null | undefined): GalleryCategory {
+  if (value && galleryCategoryIds.has(value as GalleryCategory)) {
+    return value as GalleryCategory
+  }
+  return 'all'
+}
+
+export function stocklistCategoryUrl(category: GalleryCategory): string {
+  return category === 'all' ? '/stocklist' : `/stocklist?category=${category}`
+}
+
 const stockById = new Map(stock.map((item) => [item.id, item]))
 
 export function enrichGalleryItem(item: GalleryItem): GalleryItemWithProduct {

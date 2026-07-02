@@ -13,6 +13,9 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid transparent;
 }
 
 .category-card__title {
@@ -32,13 +35,29 @@
   margin: 0;
 }
 
-.category-card__link {
-  text-decoration: none;
+.category-card__cta {
   font-weight: 600;
   font-size: 0.9rem;
   margin-top: 0.25rem;
+  color: var(--sage);
 }
 
-.category-card__link:hover {
-  color: var(--terracotta);
+@media (hover: hover) and (min-width: 768px) {
+  .category-card {
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(44, 42, 36, 0.12);
+    border-color: rgba(90, 122, 82, 0.2);
+  }
+
+  .category-card:hover .category-card__cta {
+    color: var(--terracotta);
+  }
 }
