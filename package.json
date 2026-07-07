@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite-react-ssg dev",
     "generate:images": "node scripts/generate-images.mjs",
-    "build": "npm run generate:images && vite-react-ssg build",
+    "generate:seo": "node scripts/generate-seo.mjs",
+    "build": "npm run generate:images && npm run generate:seo && vite-react-ssg build",
     "preview": "vite preview"
   },
   "dependencies": {

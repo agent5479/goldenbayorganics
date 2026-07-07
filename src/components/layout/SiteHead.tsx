@@ -1,7 +1,7 @@
 import { Head } from 'vite-react-ssg'
 import type { PageMeta } from '../../lib/seo'
 import { getOgImage, pageUrl } from '../../lib/seo'
-import { business } from '../../data/business'
+import { business, SITE_URL } from '../../data/business'
 
 interface SiteHeadProps {
   meta: PageMeta
@@ -16,7 +16,10 @@ export function SiteHead({ meta, jsonLd }: SiteHeadProps) {
     <Head>
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
+      <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow" />
       <link rel="canonical" href={url} />
+      <link rel="sitemap" type="application/xml" title="Sitemap" href={`${SITE_URL}/sitemap.xml`} />
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={business.name} />

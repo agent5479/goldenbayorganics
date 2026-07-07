@@ -2,7 +2,7 @@
 
 Brochure website for [Golden Bay Organics](https://www.facebook.com/profile.php?id=100092461392927) — organic grocer at 47 Commercial Street, Takaka.
 
-**Live site:** https://agent5479.github.io/goldenbayorganics/
+**Live site:** https://goldenbayorganics.co.nz/
 
 ## Local development
 
@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Open the URL shown in the terminal (typically `http://localhost:5173/goldenbayorganics/`).
+Open the URL shown in the terminal (typically `http://localhost:5173/`).
 
 ## Build
 

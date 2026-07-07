@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://agent5479.github.io/goldenbayorganics'
+export const SITE_URL = 'https://goldenbayorganics.co.nz'
 
 export const business = {
   name: 'Golden Bay Organics',

@@ -1,4 +1,5 @@
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
-Sitemap: https://agent5479.github.io/goldenbayorganics/sitemap.xml
+Sitemap: https://goldenbayorganics.co.nz/sitemap.xml
