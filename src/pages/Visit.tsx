@@ -1,6 +1,6 @@
 import { business, openingHours } from '../data/business'
 import { SiteHead } from '../components/layout/SiteHead'
-import { buildLocalBusinessJsonLd, pageMeta } from '../lib/seo'
+import { buildPageJsonLd, pageMeta } from '../lib/seo'
 import './VisitPage.css'
 
 const mapQuery = encodeURIComponent(`${business.address.full}, New Zealand`)
@@ -9,7 +9,7 @@ const mapEmbed = `https://maps.google.com/maps?q=${mapQuery}&output=embed`
 export function Component() {
   return (
     <>
-      <SiteHead meta={pageMeta.visit} jsonLd={buildLocalBusinessJsonLd()} />
+      <SiteHead meta={pageMeta.visit} jsonLd={buildPageJsonLd(pageMeta.visit)} />
       <header className="page-header">
         <div className="page-header__inner page-header__inner--narrow">
           <h1>Visit us</h1>

@@ -6,6 +6,7 @@ const root = join(fileURLToPath(import.meta.url), '..', '..')
 const publicDir = join(root, 'public')
 
 const SITE_URL = 'https://goldenbayorganics.co.nz'
+const lastmod = new Date().toISOString().slice(0, 10)
 
 const pages = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
@@ -19,7 +20,14 @@ function pageLoc(path) {
 }
 
 const robotsTxt = `# https://www.robotstxt.org/robotstxt.html
+# Golden Bay Organics — allow all crawlers; sitemap listed below.
 User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
 Allow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml
@@ -31,6 +39,7 @@ ${pages
   .map(
     (page) => `  <url>
     <loc>${pageLoc(page.path)}</loc>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>`,
@@ -42,4 +51,4 @@ ${pages
 await writeFile(join(publicDir, 'robots.txt'), robotsTxt, 'utf8')
 await writeFile(join(publicDir, 'sitemap.xml'), sitemapXml, 'utf8')
 
-console.log('Generated robots.txt and sitemap.xml.')
+console.log(`Generated robots.txt and sitemap.xml (lastmod ${lastmod}).`)

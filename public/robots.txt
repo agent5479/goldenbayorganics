@@ -1,5 +1,12 @@
 # https://www.robotstxt.org/robotstxt.html
+# Golden Bay Organics — allow all crawlers; sitemap listed below.
 User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
 Allow: /
 
 Sitemap: https://goldenbayorganics.co.nz/sitemap.xml

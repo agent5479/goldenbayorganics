@@ -10,7 +10,7 @@ import {
   type GalleryCategory,
   type GalleryItemWithProduct,
 } from '../lib/gallery'
-import { pageMeta } from '../lib/seo'
+import { buildPageJsonLd, pageMeta } from '../lib/seo'
 import './StocklistPage.css'
 
 export function Component() {
@@ -34,7 +34,7 @@ export function Component() {
 
   return (
     <>
-      <SiteHead meta={pageMeta.stocklist} />
+      <SiteHead meta={pageMeta.stocklist} jsonLd={buildPageJsonLd(pageMeta.stocklist)} />
       <header className="page-header">
         <div className="page-header__inner">
           <span className="chip chip--accent">In store</span>

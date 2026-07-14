@@ -7,12 +7,12 @@ import { PatriciaPromo } from '../components/home/PatriciaPromo'
 import { CategoryGrid } from '../components/home/CategoryGrid'
 import { InTheShop } from '../components/home/InTheShop'
 import { RecentUpdates } from '../components/home/RecentUpdates'
-import { buildLocalBusinessJsonLd, pageMeta } from '../lib/seo'
+import { buildPageJsonLd, pageMeta } from '../lib/seo'
 
 export function Component() {
   return (
     <>
-      <SiteHead meta={pageMeta.home} jsonLd={buildLocalBusinessJsonLd()} />
+      <SiteHead meta={pageMeta.home} jsonLd={buildPageJsonLd(pageMeta.home)} />
       <Hero />
       <ShopShowcase />
       <StatsStrip />

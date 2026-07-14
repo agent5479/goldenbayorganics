@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 import { business } from '../data/business'
 import { SiteHead } from '../components/layout/SiteHead'
-import { pageMeta } from '../lib/seo'
+import { buildPageJsonLd, pageMeta } from '../lib/seo'
 import './AboutPage.css'
 
 export function Component() {
   return (
     <>
-      <SiteHead meta={pageMeta.about} />
+      <SiteHead meta={pageMeta.about} jsonLd={buildPageJsonLd(pageMeta.about)} />
       <header className="page-header">
         <div className="page-header__inner page-header__inner--narrow">
           <span className="chip chip--accent">Local & community</span>
