@@ -32,8 +32,12 @@ Edit the seed data files and push to `main`:
 
 ### Refreshing the searchable catalog from Reckon
 
-1. Export inventory as an `.IIF` into `datadump/` (gitignored).
-2. Run `npm run convert:catalog` (or pass a path: `npm run convert:catalog -- "datadump/stocklist today.IIF"`).
+**Quick path (with Cursor agent):** drop a new `.IIF` into `datadump/` (overwrite is fine), then say **“stocklist IIF updated”**. The agent regenerates `src/data/catalog.json`, commits, and pushes.
+
+**Manual path:**
+
+1. Export inventory as an `.IIF` into `datadump/` (gitignored). Prefer the filename `stocklist today.IIF`; otherwise the converter uses the newest `*.IIF` in that folder.
+2. Run `npm run convert:catalog` (or pass a path: `npm run convert:catalog -- "datadump/your-file.IIF"`).
 3. Commit the updated `src/data/catalog.json` and push.
 
 This writes sell prices and an `exportedAt` datestamp only — no cost, quantities, or barcodes.

@@ -1,0 +1,35 @@
+---
+description: Refresh the public stock catalog when the Reckon IIF export is updated
+alwaysApply: true
+---
+
+# Stocklist IIF refresh
+
+When the user says the stocklist / IIF / inventory export is **updated**, **replaced**, or **refreshed** (or similar), that is a request to regenerate the website catalog — not a planning discussion.
+
+## Trigger phrases (treat as action)
+
+- "stocklist updated" / "IIF updated" / "replaced the stocklist"
+- "new stocklist file" / "refresh the catalog" / "update prices from IIF"
+
+## What to do (in order)
+
+1. Confirm an `.IIF` / `.iif` exists under `datadump/` (gitignored). Prefer `datadump/stocklist today.IIF`; otherwise use the newest `*.IIF` there. If missing, ask them to drop the export into `datadump/`.
+2. Run `npm run convert:catalog` from the repo root (optional path arg if they named the file differently).
+3. Verify console output (item count + `exportedAt`) and that `src/data/catalog.json` changed.
+4. Do **not** invent products or edit prices by hand — the JSON is generated.
+5. Commit `src/data/catalog.json` (and converter/README only if those also changed). Push to `main` unless they say not to.
+
+## Facts to remember
+
+- Output: `src/data/catalog.json` only (name, category, sell price, `exportedAt`).
+- No cost/restock price, quantities, or barcodes on the site.
+- Hidden/discontinued Reckon items are excluded by the converter.
+- UI lives on `/stocklist` (Catalog tab); photo gallery is separate.
+- Converter: `scripts/convert-iif-stocklist.mjs`.
+
+## User workflow (their side)
+
+1. Export stocklist from Reckon as IIF into `datadump/` (overwrite is fine).
+2. Tell the agent the stocklist IIF is updated.
+3. Agent regenerates catalog, commits, and pushes.

@@ -1,10 +1,50 @@
-import { readFile, writeFile } from 'node:fs/promises'
+import { readdir, readFile, writeFile, stat } from 'node:fs/promises'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = join(fileURLToPath(import.meta.url), '..', '..')
-const defaultInput = join(root, 'datadump', 'stocklist today.IIF')
+const datadumpDir = join(root, 'datadump')
+const preferredName = 'stocklist today.IIF'
 const outputPath = join(root, 'src', 'data', 'catalog.json')
+
+/** Prefer explicit CLI path; else preferred filename; else newest *.IIF / *.iif in datadump/. */
+async function resolveInputPath(cliArg) {
+  if (cliArg) return resolve(cliArg)
+
+  const preferred = join(datadumpDir, preferredName)
+  try {
+    await stat(preferred)
+    return preferred
+  } catch {
+    // fall through
+  }
+
+  let entries
+  try {
+    entries = await readdir(datadumpDir)
+  } catch {
+    throw new Error(
+      `No IIF found. Place an export in datadump/ (e.g. "${preferredName}") or pass a path.`,
+    )
+  }
+
+  const iifs = entries.filter((name) => /\.iif$/i.test(name))
+  if (iifs.length === 0) {
+    throw new Error(
+      `No .IIF files in datadump/. Drop a Reckon stocklist export there, then re-run.`,
+    )
+  }
+
+  const ranked = await Promise.all(
+    iifs.map(async (name) => {
+      const full = join(datadumpDir, name)
+      const info = await stat(full)
+      return { full, mtime: info.mtimeMs }
+    }),
+  )
+  ranked.sort((a, b) => b.mtime - a.mtime)
+  return ranked[0].full
+}
 
 const PRODUCT_TYPES = new Set(['STOCK', 'ASSEMBLY'])
 
@@ -61,7 +101,7 @@ function isFullProductSchema(idx) {
 }
 
 async function main() {
-  const inputPath = resolve(process.argv[2] || defaultInput)
+  const inputPath = await resolveInputPath(process.argv[2])
   const text = await readFile(inputPath, 'utf8')
   const lines = text.split(/\r?\n/)
 
