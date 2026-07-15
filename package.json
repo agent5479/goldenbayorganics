@@ -7,6 +7,7 @@
     "dev": "vite-react-ssg dev",
     "generate:images": "node scripts/generate-images.mjs",
     "generate:seo": "node scripts/generate-seo.mjs",
+    "convert:catalog": "node scripts/convert-iif-stocklist.mjs",
     "build": "npm run generate:images && npm run generate:seo && vite-react-ssg build",
     "preview": "vite preview"
   },

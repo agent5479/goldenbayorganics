@@ -129,7 +129,7 @@ export const pageMeta = {
   stocklist: {
     title: 'Organic Stocklist | Golden Bay Organics Takaka',
     description:
-      'Browse organic produce, bulk foods, herbs, bakery, speciality items and eco household goods in stock at Golden Bay Organics, Takaka.',
+      'Search our product catalog and browse photos of organic produce, bulk foods, herbs, bakery and specialty goods at Golden Bay Organics, Takaka.',
     path: '/stocklist',
   },
   visit: {

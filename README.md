@@ -26,10 +26,19 @@ The static site is output to `dist/` and prerendered for SEO and social link pre
 
 Edit the seed data files and push to `main`:
 
-- [`src/data/stock.json`](src/data/stock.json) — product showcase
+- [`src/data/catalog.json`](src/data/catalog.json) — full searchable stocklist (generated)
+- [`src/data/stock.json`](src/data/stock.json) — curated product showcase on the homepage
 - [`src/data/specials.json`](src/data/specials.json) — store updates and featured specials
 
-Product images go in [`public/images/`](public/images/). Reference the filename in each stock item's `image` field. Missing images show a category-coloured placeholder.
+### Refreshing the searchable catalog from Reckon
+
+1. Export inventory as an `.IIF` into `datadump/` (gitignored).
+2. Run `npm run convert:catalog` (or pass a path: `npm run convert:catalog -- "datadump/stocklist today.IIF"`).
+3. Commit the updated `src/data/catalog.json` and push.
+
+This writes sell prices and an `exportedAt` datestamp only — no cost, quantities, or barcodes.
+
+Product images for the photo gallery go in [`public/images/`](public/images/). Reference the filename in each stock item's `image` field. Missing images show a category-coloured placeholder.
 
 ## Deployment
 

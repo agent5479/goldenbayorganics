@@ -1,0 +1,44 @@
+.catalog-search {
+  margin-bottom: 1.25rem;
+}
+
+.catalog-search__fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: flex-end;
+}
+
+.catalog-search__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.catalog-search__field--category {
+  flex: 0 1 16rem;
+}
+
+.catalog-search__field input,
+.catalog-search__field select {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.85rem;
+  width: 100%;
+}
+
+.catalog-search__field input:focus,
+.catalog-search__field select:focus {
+  outline: 2px solid var(--sage);
+  outline-offset: 1px;
+}
+
+.catalog-search__count {
+  margin: 0.75rem 0 0;
+}
