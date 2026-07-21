@@ -85,6 +85,7 @@ export function buildWebSiteJsonLd() {
     '@type': 'WebSite',
     '@id': `${SITE_URL}/#website`,
     name: business.name,
+    alternateName: 'Golden Bay Organics Takaka',
     url: SITE_URL,
     description: business.tagline,
     inLanguage: 'en-NZ',

@@ -20,7 +20,9 @@ function pageLoc(path) {
 }
 
 const robotsTxt = `# https://www.robotstxt.org/robotstxt.html
-# Golden Bay Organics — allow all crawlers; sitemap listed below.
+# Golden Bay Organics — organic grocer in Takaka, Golden Bay, New Zealand.
+# Live site: ${SITE_URL}
+# Allow all crawlers; sitemap listed below.
 User-agent: *
 Allow: /
 

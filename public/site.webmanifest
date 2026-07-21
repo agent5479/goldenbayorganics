@@ -1,0 +1,23 @@
+{
+  "name": "Golden Bay Organics",
+  "short_name": "GBO Takaka",
+  "description": "Organic grocer in Takaka, Golden Bay — fresh produce, herbs, breads, bulk foods, speciality foods and eco cleaners at 47 Commercial Street.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#faf8f4",
+  "theme_color": "#5a7a52",
+  "lang": "en-NZ",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

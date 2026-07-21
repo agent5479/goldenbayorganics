@@ -1,0 +1,13 @@
+# Golden Bay Organics — Takaka, Golden Bay
+# Organic grocer at 47 Commercial Street, Takaka 7110, New Zealand.
+# Site: https://goldenbayorganics.co.nz/
+# Phone: 03 525 8677
+# Facebook: https://www.facebook.com/profile.php?id=100092461392927
+
+/* TEAM */
+Owner: Patricia Smith
+Location: Takaka, Golden Bay, Tasman, New Zealand
+
+/* SITE */
+Standards: HTML5, CSS, React SSG
+Language: en-NZ

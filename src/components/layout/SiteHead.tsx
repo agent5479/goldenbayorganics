@@ -19,12 +19,24 @@ export function SiteHead({ meta, jsonLd }: SiteHeadProps) {
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <meta name="author" content={business.name} />
+      <meta name="application-name" content={business.name} />
+      <meta
+        name="keywords"
+        content="Golden Bay Organics, Takaka, Golden Bay, organic grocer, organic food, Tasman, New Zealand, bulk foods, fresh produce"
+      />
       <meta name="geo.region" content="NZ-TAS" />
       <meta name="geo.placename" content="Takaka, Golden Bay" />
       <meta name="geo.position" content="-40.8556;172.8076" />
       <meta name="ICBM" content="-40.8556, 172.8076" />
       <link rel="canonical" href={url} />
       <link rel="sitemap" type="application/xml" title="Sitemap" href={`${SITE_URL}/sitemap.xml`} />
+      <link rel="icon" href="/favicon.ico" sizes="48x48" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+      <link rel="author" type="text/plain" href="/humans.txt" />
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={business.name} />

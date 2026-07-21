@@ -1,8 +1,17 @@
 # Golden Bay Organics
 
-Brochure website for [Golden Bay Organics](https://www.facebook.com/profile.php?id=100092461392927) — organic grocer at 47 Commercial Street, Takaka.
+Brochure website for [Golden Bay Organics](https://www.facebook.com/profile.php?id=100092461392927) — organic grocer at 47 Commercial Street, Takaka, Golden Bay, New Zealand.
 
 **Live site:** https://goldenbayorganics.co.nz/
+
+## Search & discovery
+
+Static pages are prerendered for crawlers and social previews. Brand and location (Golden Bay Organics, Takaka) appear in:
+
+- Per-page titles, descriptions, Open Graph / Twitter tags, and GroceryStore JSON-LD (`src/lib/seo.ts`)
+- `public/robots.txt` and `public/sitemap.xml` (regenerated on build)
+- Favicons + `site.webmanifest` (`npm run generate:favicons`)
+- `public/humans.txt`
 
 ## Local development
 
