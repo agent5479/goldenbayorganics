@@ -130,15 +130,19 @@ async function main() {
 
   const get = (row, key) => stripQuotes(row.cols[row.idx[key]] ?? '')
 
-  // Collect parent names (left side of NAME:child) from visible products
-  const parentNames = new Set()
+  // Any NAME that is a colon-prefix of another item is a category header, not a product
+  const parentPaths = new Set()
   for (const row of rows) {
     const type = get(row, 'INVITEMTYPE')
     if (!PRODUCT_TYPES.has(type)) continue
     if (get(row, 'HIDDEN') === 'Y') continue
-    const name = get(row, 'NAME')
-    const colon = name.indexOf(':')
-    if (colon > 0) parentNames.add(name.slice(0, colon))
+    const parts = get(row, 'NAME')
+      .split(':')
+      .map((p) => p.trim())
+      .filter(Boolean)
+    for (let i = 1; i < parts.length; i++) {
+      parentPaths.add(parts.slice(0, i).join(':'))
+    }
   }
 
   const usedIds = new Map()
@@ -151,13 +155,17 @@ async function main() {
 
     const fullName = get(row, 'NAME')
     if (!fullName) continue
+    if (parentPaths.has(fullName)) continue
 
-    // Skip category header rows (appear both as parent and as own INVITEM)
-    if (parentNames.has(fullName) && !fullName.includes(':')) continue
+    const parts = fullName
+      .split(':')
+      .map((p) => p.trim())
+      .filter(Boolean)
+    if (parts.length === 0) continue
 
-    const colon = fullName.indexOf(':')
-    const category = colon > 0 ? fullName.slice(0, colon) : 'Other'
-    const leafName = colon > 0 ? fullName.slice(colon + 1) : fullName
+    // Group path excludes the leaf product segment; lone names go under Other
+    const leafName = parts[parts.length - 1]
+    const path = parts.length === 1 ? ['Other'] : parts.slice(0, -1)
     const desc = get(row, 'DESC')
     const displayName = desc || leafName
     if (!displayName) continue
@@ -166,7 +174,7 @@ async function main() {
     const fallback = parsePrice(get(row, 'PRICE'))
     const price = gross ?? fallback
 
-    let idBase = slugify(`${category}-${displayName}`) || 'item'
+    let idBase = slugify(`${path.join('-')}-${displayName}`) || 'item'
     let id = idBase
     const count = usedIds.get(idBase) ?? 0
     if (count > 0) id = `${idBase}-${count + 1}`
@@ -175,14 +183,16 @@ async function main() {
     items.push({
       id,
       name: displayName,
-      category,
+      path,
       price,
     })
   }
 
   items.sort((a, b) => {
-    const cat = a.category.localeCompare(b.category, undefined, { sensitivity: 'base' })
-    if (cat !== 0) return cat
+    const pathA = a.path.join('\0')
+    const pathB = b.path.join('\0')
+    const pathCmp = pathA.localeCompare(pathB, undefined, { sensitivity: 'base' })
+    if (pathCmp !== 0) return pathCmp
     return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
   })
 

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { CatalogItem } from '../../lib/catalog'
-import { formatCatalogPrice } from '../../lib/catalog'
+import { formatCatalogPath, formatCatalogPrice } from '../../lib/catalog'
 import './CatalogTable.css'
 
 const PAGE_SIZE = 100
@@ -37,7 +37,7 @@ export function CatalogTable({ items }: CatalogTableProps) {
           {visible.map((item) => (
             <tr key={item.id}>
               <td className="catalog-table__name">{item.name}</td>
-              <td className="catalog-table__category">{item.category}</td>
+              <td className="catalog-table__category">{formatCatalogPath(item.path)}</td>
               <td className="catalog-table__price">{formatCatalogPrice(item.price)}</td>
             </tr>
           ))}

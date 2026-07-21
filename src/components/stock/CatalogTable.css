@@ -37,7 +37,6 @@
 
 .catalog-table__category {
   color: var(--muted);
-  white-space: nowrap;
 }
 
 .catalog-table__price {

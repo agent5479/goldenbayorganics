@@ -9,7 +9,8 @@ import {
   catalog,
   filterCatalogItems,
   formatCatalogDate,
-  getCatalogCategories,
+  getCatalogChildCategories,
+  getCatalogTopCategories,
 } from '../lib/catalog'
 import {
   galleryFilterOptions,
@@ -33,13 +34,22 @@ export function Component() {
   const category = parseGalleryCategory(searchParams.get('category'))
   const [selected, setSelected] = useState<GalleryItemWithProduct | null>(null)
   const [catalogQuery, setCatalogQuery] = useState('')
-  const [catalogCategory, setCatalogCategory] = useState('all')
+  const [catalogPath, setCatalogPath] = useState<string[]>([])
 
   const photoItems = getStocklistGallery(category)
-  const categories = useMemo(() => getCatalogCategories(), [])
+  const topCategories = useMemo(() => getCatalogTopCategories(), [])
+  const tierOptions = useMemo(() => {
+    const tiers: string[][] = [topCategories]
+    for (let depth = 1; depth <= catalogPath.length; depth++) {
+      const prefix = catalogPath.slice(0, depth)
+      tiers.push(getCatalogChildCategories(prefix))
+    }
+    return tiers
+  }, [topCategories, catalogPath])
+
   const catalogItems = useMemo(
-    () => filterCatalogItems(catalogQuery, catalogCategory),
-    [catalogQuery, catalogCategory],
+    () => filterCatalogItems(catalogQuery, catalogPath),
+    [catalogQuery, catalogPath],
   )
 
   const setView = (next: StocklistView) => {
@@ -106,14 +116,14 @@ export function Component() {
               </p>
               <CatalogSearch
                 query={catalogQuery}
-                category={catalogCategory}
-                categories={categories}
+                selectedPath={catalogPath}
+                tierOptions={tierOptions}
                 resultCount={catalogItems.length}
                 onQueryChange={setCatalogQuery}
-                onCategoryChange={setCatalogCategory}
+                onPathChange={setCatalogPath}
               />
               <CatalogTable
-                key={`${catalogQuery}\0${catalogCategory}`}
+                key={`${catalogQuery}\0${catalogPath.join('\0')}`}
                 items={catalogItems}
               />
             </>

@@ -57,6 +57,10 @@
   margin-bottom: 1.5rem;
 }
 
+.stocklist-filters--sub {
+  margin-top: -0.5rem;
+}
+
 .stocklist-filter {
   font-family: var(--font-body);
   font-size: 0.85rem;

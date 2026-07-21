@@ -3,7 +3,8 @@ import catalogData from '../data/catalog.json'
 export interface CatalogItem {
   id: string
   name: string
-  category: string
+  /** Reckon group path excluding the product leaf, e.g. ["Bulk", "FLOUR"] */
+  path: string[]
   price: number | null
 }
 
@@ -14,24 +15,50 @@ export interface Catalog {
 
 export const catalog = catalogData as Catalog
 
-export function getCatalogCategories(): string[] {
-  const set = new Set(catalog.items.map((item) => item.category))
+function pathPrefixMatch(itemPath: string[], selected: string[]): boolean {
+  if (selected.length === 0) return true
+  if (itemPath.length < selected.length) return false
+  return selected.every((seg, i) => itemPath[i] === seg)
+}
+
+/** Top-level category labels, sorted. */
+export function getCatalogTopCategories(): string[] {
+  const set = new Set(catalog.items.map((item) => item.path[0]).filter(Boolean))
   return [...set].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
 }
 
-export function filterCatalogItems(
-  query: string,
-  category: string | 'all',
-): CatalogItem[] {
+/**
+ * Child group labels under `selectedPath`.
+ * Only returns segments that are real groups (some item has a deeper path).
+ */
+export function getCatalogChildCategories(selectedPath: string[]): string[] {
+  if (selectedPath.length === 0) return getCatalogTopCategories()
+
+  const depth = selectedPath.length
+  const children = new Set<string>()
+
+  for (const item of catalog.items) {
+    if (!pathPrefixMatch(item.path, selectedPath)) continue
+    if (item.path.length > depth) {
+      children.add(item.path[depth])
+    }
+  }
+
+  return [...children].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+}
+
+export function filterCatalogItems(query: string, selectedPath: string[]): CatalogItem[] {
   const q = query.trim().toLowerCase()
   return catalog.items.filter((item) => {
-    if (category !== 'all' && item.category !== category) return false
+    if (!pathPrefixMatch(item.path, selectedPath)) return false
     if (!q) return true
-    return (
-      item.name.toLowerCase().includes(q) ||
-      item.category.toLowerCase().includes(q)
-    )
+    const haystack = `${item.name} ${item.path.join(' ')}`.toLowerCase()
+    return haystack.includes(q)
   })
+}
+
+export function formatCatalogPath(path: string[]): string {
+  return path.join(' · ')
 }
 
 export function formatCatalogPrice(price: number | null): string {
