@@ -19,10 +19,13 @@ function pageLoc(path) {
   return path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`
 }
 
-const robotsTxt = `# https://www.robotstxt.org/robotstxt.html
-# Golden Bay Organics — organic grocer in Takaka, Golden Bay, New Zealand.
-# Live site: ${SITE_URL}
-# Allow all crawlers; sitemap listed below.
+const robotsTxt = `# robots.txt for Golden Bay Organics
+# Organic grocer in Takaka, Golden Bay, New Zealand
+# ${SITE_URL}
+#
+# Allow full crawl of public pages for local search discovery
+# (organic grocer Takaka, organic shop Golden Bay, etc.)
+
 User-agent: *
 Allow: /
 
@@ -32,7 +35,11 @@ Allow: /
 User-agent: Googlebot-Image
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
 Sitemap: ${SITE_URL}/sitemap.xml
+Host: ${SITE_URL.replace('https://', '')}
 `
 
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>

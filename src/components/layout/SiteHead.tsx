@@ -1,6 +1,6 @@
 import { Head } from 'vite-react-ssg'
 import type { PageMeta } from '../../lib/seo'
-import { getOgImage, OG_IMAGE, pageUrl } from '../../lib/seo'
+import { getOgImage, OG_IMAGE, pageUrl, SEARCH_KEYWORDS } from '../../lib/seo'
 import { business, SITE_URL } from '../../data/business'
 
 interface SiteHeadProps {
@@ -11,6 +11,7 @@ interface SiteHeadProps {
 export function SiteHead({ meta, jsonLd }: SiteHeadProps) {
   const url = pageUrl(meta.path)
   const image = getOgImage(meta.image)
+  const keywords = meta.keywords ?? SEARCH_KEYWORDS
 
   return (
     <Head>
@@ -18,12 +19,10 @@ export function SiteHead({ meta, jsonLd }: SiteHeadProps) {
       <meta name="description" content={meta.description} />
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <meta name="author" content={business.name} />
       <meta name="application-name" content={business.name} />
-      <meta
-        name="keywords"
-        content="Golden Bay Organics, Takaka, Golden Bay, organic grocer, organic food, Tasman, New Zealand, bulk foods, fresh produce"
-      />
+      <meta name="keywords" content={keywords} />
       <meta name="geo.region" content="NZ-TAS" />
       <meta name="geo.placename" content="Takaka, Golden Bay" />
       <meta name="geo.position" content="-40.8556;172.8076" />

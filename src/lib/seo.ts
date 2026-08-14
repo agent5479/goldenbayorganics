@@ -4,6 +4,7 @@ export interface PageMeta {
   title: string
   description: string
   path: string
+  keywords?: string
   image?: string
 }
 
@@ -12,6 +13,23 @@ const GEO = {
   latitude: -40.8556,
   longitude: 172.8076,
 } as const
+
+/** Primary local search terms for meta keywords and structured data. */
+export const SEARCH_KEYWORDS = [
+  'Golden Bay Organics',
+  'organic grocer Takaka',
+  'organic shop Golden Bay',
+  'organic food Takaka',
+  'health food store Takaka',
+  'organic produce Golden Bay',
+  'bulk foods Takaka',
+  'herbs spices Takaka',
+  'Commercial Street Takaka',
+  'Tasman New Zealand',
+].join(', ')
+
+const STORE_DESCRIPTION =
+  'Organic grocer in Takaka, Golden Bay — fresh produce, bulk foods, herbs, bakery, specialty foods and eco cleaners at 47 Commercial Street.'
 
 export const OG_IMAGE = {
   path: '/images/og-default.jpg',
@@ -37,11 +55,12 @@ export function getOgImage(image?: string): string {
 export function buildLocalBusinessJsonLd() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'GroceryStore',
+    '@type': ['GroceryStore', 'Store'],
     '@id': `${SITE_URL}/#store`,
     name: business.name,
-    alternateName: 'Golden Bay Organics Takaka',
-    description: business.tagline,
+    alternateName: ['Golden Bay Organics Takaka', 'Organic shop Takaka'],
+    description: STORE_DESCRIPTION,
+    slogan: business.tagline,
     url: SITE_URL,
     image: defaultImage,
     telephone: business.phoneTel,
@@ -68,6 +87,17 @@ export function buildLocalBusinessJsonLd() {
       { '@type': 'AdministrativeArea', name: 'Golden Bay' },
       { '@type': 'AdministrativeArea', name: 'Tasman' },
     ],
+    knowsAbout: [
+      'organic groceries',
+      'organic produce',
+      'bulk foods',
+      'herbs and spices',
+      'artisan bread',
+      'specialty foods',
+      'eco-friendly cleaners',
+      'Takaka',
+      'Golden Bay',
+    ],
     openingHoursSpecification: openingHours
       .filter((row) => row.opens && row.closes)
       .map((row) => ({
@@ -87,7 +117,7 @@ export function buildWebSiteJsonLd() {
     name: business.name,
     alternateName: 'Golden Bay Organics Takaka',
     url: SITE_URL,
-    description: business.tagline,
+    description: STORE_DESCRIPTION,
     inLanguage: 'en-NZ',
     publisher: { '@id': `${SITE_URL}/#store` },
   }
@@ -124,25 +154,29 @@ export const pageMeta = {
   home: {
     title: 'Golden Bay Organics | Organic Grocer in Takaka, Golden Bay',
     description:
-      'Your local organic grocer in Takaka — fresh produce, herbs, breads, bulk foods, speciality foods and eco cleaners. Visit us at 47 Commercial Street, Golden Bay.',
+      'Organic grocer in Takaka, Golden Bay. Fresh produce, bulk foods, herbs, bakery, specialty foods & eco cleaners at 47 Commercial Street. Open Mon–Sat.',
     path: '/',
+    keywords: SEARCH_KEYWORDS,
   },
   stocklist: {
-    title: 'Organic Stocklist | Golden Bay Organics Takaka',
+    title: 'Organic Stocklist & Photos | Golden Bay Organics Takaka',
     description:
-      'Search our product catalog and browse photos of organic produce, bulk foods, herbs, bakery and specialty goods at Golden Bay Organics, Takaka.',
+      'Search the organic product catalog at Golden Bay Organics, Takaka — produce, bulk foods, herbs, bakery and specialty goods. Browse current stock photos.',
     path: '/stocklist',
+    keywords: `${SEARCH_KEYWORDS}, organic stocklist Takaka, organic products Golden Bay`,
   },
   visit: {
-    title: 'Visit Us | Hours & Directions — Golden Bay Organics Takaka',
+    title: 'Hours & Directions | Organic Shop Takaka — Golden Bay Organics',
     description:
-      'Find Golden Bay Organics at 47 Commercial Street, Takaka 7110. Open Mon–Fri 9am–5pm, Sat 10am–2pm. Phone 03 525 8677.',
+      "Visit Takaka's organic shop at 47 Commercial Street, Takaka 7110. Open Mon–Fri 9am–5pm, Sat 10am–2pm. Phone 03 525 8677.",
     path: '/visit',
+    keywords: `${SEARCH_KEYWORDS}, Golden Bay Organics hours, organic shop directions Takaka`,
   },
   about: {
-    title: 'About Us | Golden Bay Organics — Organic Grocer Takaka',
+    title: 'About | Organic Grocer Takaka — Golden Bay Organics',
     description:
-      'Golden Bay Organics is Takaka\'s local organic grocer — supporting healthy, affordable eating with fresh produce, bulk foods and community-minded shopping.',
+      "About Golden Bay Organics — Takaka's local organic grocer on Commercial Street. Fresh, affordable organic food for Golden Bay and Tasman.",
     path: '/about',
+    keywords: `${SEARCH_KEYWORDS}, Patricia Smith Takaka, local organic grocer Golden Bay`,
   },
 } satisfies Record<string, PageMeta>

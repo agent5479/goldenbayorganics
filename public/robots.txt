@@ -1,7 +1,10 @@
-# https://www.robotstxt.org/robotstxt.html
-# Golden Bay Organics — organic grocer in Takaka, Golden Bay, New Zealand.
-# Live site: https://goldenbayorganics.co.nz
-# Allow all crawlers; sitemap listed below.
+# robots.txt for Golden Bay Organics
+# Organic grocer in Takaka, Golden Bay, New Zealand
+# https://goldenbayorganics.co.nz
+#
+# Allow full crawl of public pages for local search discovery
+# (organic grocer Takaka, organic shop Golden Bay, etc.)
+
 User-agent: *
 Allow: /
 
@@ -11,4 +14,8 @@ Allow: /
 User-agent: Googlebot-Image
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://goldenbayorganics.co.nz/sitemap.xml
+Host: goldenbayorganics.co.nz
