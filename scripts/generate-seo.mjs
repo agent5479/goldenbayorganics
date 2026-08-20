@@ -8,9 +8,16 @@ const publicDir = join(root, 'public')
 const SITE_URL = 'https://goldenbayorganics.co.nz'
 const lastmod = new Date().toISOString().slice(0, 10)
 
+const shopCategories = ['produce', 'herbs', 'bakery', 'bulk', 'specialty', 'household']
+
 const pages = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
   { path: '/stocklist', changefreq: 'weekly', priority: '0.9' },
+  ...shopCategories.map((id) => ({
+    path: `/shop/${id}`,
+    changefreq: 'weekly',
+    priority: '0.8',
+  })),
   { path: '/visit', changefreq: 'monthly', priority: '0.8' },
   { path: '/about', changefreq: 'monthly', priority: '0.7' },
 ]
@@ -23,7 +30,7 @@ const robotsTxt = `# robots.txt for Golden Bay Organics
 # Organic grocer in Takaka, Golden Bay, New Zealand
 # ${SITE_URL}
 #
-# Allow full crawl of public pages for local search discovery
+# Allow full crawl of public pages for local search and AI discovery
 # (organic grocer Takaka, organic shop Golden Bay, etc.)
 
 User-agent: *
@@ -36,6 +43,21 @@ User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml
@@ -60,4 +82,6 @@ ${pages
 await writeFile(join(publicDir, 'robots.txt'), robotsTxt, 'utf8')
 await writeFile(join(publicDir, 'sitemap.xml'), sitemapXml, 'utf8')
 
-console.log(`Generated robots.txt and sitemap.xml (lastmod ${lastmod}).`)
+console.log(
+  `Generated robots.txt and sitemap.xml (${pages.length} URLs, lastmod ${lastmod}).`,
+)

@@ -16,6 +16,10 @@ export const routes: RouteRecord[] = [
         lazy: () => import('./pages/Stocklist'),
       },
       {
+        path: 'shop/:categoryId',
+        lazy: () => import('./pages/ShopCategory'),
+      },
+      {
         path: 'visit',
         lazy: () => import('./pages/Visit'),
       },

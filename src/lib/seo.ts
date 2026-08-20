@@ -1,4 +1,11 @@
-import { business, openingHours, SITE_URL } from '../data/business'
+import {
+  business,
+  categories,
+  openingHours,
+  shopCategoryPath,
+  SITE_URL,
+  type ShopCategory,
+} from '../data/business'
 
 export interface PageMeta {
   title: string
@@ -23,7 +30,9 @@ export const SEARCH_KEYWORDS = [
   'health food store Takaka',
   'organic produce Golden Bay',
   'bulk foods Takaka',
+  'bulk refill Takaka',
   'herbs spices Takaka',
+  'eco cleaners Takaka',
   'Commercial Street Takaka',
   'Tasman New Zealand',
 ].join(', ')
@@ -40,6 +49,7 @@ export const OG_IMAGE = {
 } as const
 
 const defaultImage = `${SITE_URL}${OG_IMAGE.path}`
+const STORE_ID = `${SITE_URL}/#store`
 
 export function pageUrl(path: string): string {
   const normalized = path === '/' ? '' : path.replace(/^\//, '')
@@ -52,11 +62,42 @@ export function getOgImage(image?: string): string {
   return `${SITE_URL}/images/${image.replace(/^\//, '')}`
 }
 
+function buildSameAs(): string[] {
+  const urls = [
+    business.profiles.facebook,
+    business.profiles.googleBusinessProfile,
+    business.owner.servicesUrl,
+  ]
+  return urls.filter((url): url is string => Boolean(url))
+}
+
+function buildOfferCatalog() {
+  return {
+    '@type': 'OfferCatalog',
+    name: 'Departments at Golden Bay Organics',
+    itemListElement: categories.map((cat, index) => ({
+      '@type': 'Offer',
+      position: index + 1,
+      itemOffered: {
+        '@type': 'Service',
+        name: cat.label,
+        description: cat.description,
+        url: pageUrl(shopCategoryPath(cat.id)),
+        provider: { '@id': STORE_ID },
+        areaServed: [
+          { '@type': 'City', name: 'Takaka' },
+          { '@type': 'AdministrativeArea', name: 'Golden Bay' },
+        ],
+      },
+    })),
+  }
+}
+
 export function buildLocalBusinessJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': ['GroceryStore', 'Store'],
-    '@id': `${SITE_URL}/#store`,
+    '@id': STORE_ID,
     name: business.name,
     alternateName: ['Golden Bay Organics Takaka', 'Organic shop Takaka'],
     description: STORE_DESCRIPTION,
@@ -67,7 +108,7 @@ export function buildLocalBusinessJsonLd() {
     priceRange: '$$',
     currenciesAccepted: 'NZD',
     paymentAccepted: 'Cash, EFTPOS, Credit Card',
-    sameAs: [business.facebook],
+    sameAs: buildSameAs(),
     address: {
       '@type': 'PostalAddress',
       streetAddress: business.address.street,
@@ -90,14 +131,18 @@ export function buildLocalBusinessJsonLd() {
     knowsAbout: [
       'organic groceries',
       'organic produce',
+      'spray-free produce',
       'bulk foods',
+      'bulk refills',
       'herbs and spices',
       'artisan bread',
       'specialty foods',
       'eco-friendly cleaners',
+      'household refills',
       'Takaka',
       'Golden Bay',
     ],
+    hasOfferCatalog: buildOfferCatalog(),
     openingHoursSpecification: openingHours
       .filter((row) => row.opens && row.closes)
       .map((row) => ({
@@ -119,7 +164,7 @@ export function buildWebSiteJsonLd() {
     url: SITE_URL,
     description: STORE_DESCRIPTION,
     inLanguage: 'en-NZ',
-    publisher: { '@id': `${SITE_URL}/#store` },
+    publisher: { '@id': STORE_ID },
   }
 }
 
@@ -150,11 +195,58 @@ export function buildPageJsonLd(meta: PageMeta) {
   return [buildWebSiteJsonLd(), buildLocalBusinessJsonLd(), buildBreadcrumbJsonLd(crumbs)]
 }
 
+export function categoryPageMeta(category: ShopCategory): PageMeta {
+  return {
+    title: category.seoTitle,
+    description: category.seoDescription,
+    path: shopCategoryPath(category.id),
+    keywords: `${SEARCH_KEYWORDS}, ${category.label} Takaka, ${category.label} Golden Bay`,
+  }
+}
+
+export function buildCategoryPageJsonLd(category: ShopCategory) {
+  const path = shopCategoryPath(category.id)
+  const meta = categoryPageMeta(category)
+  const crumbs = [
+    { name: 'Home', path: '/' },
+    { name: 'Stocklist', path: '/stocklist' },
+    { name: category.label, path },
+  ]
+
+  const webPage = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${pageUrl(path)}#webpage`,
+    url: pageUrl(path),
+    name: meta.title,
+    description: meta.description,
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    about: { '@id': STORE_ID },
+    mainEntity: {
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: category.label,
+        description: category.description,
+        url: pageUrl(path),
+        provider: { '@id': STORE_ID },
+      },
+    },
+  }
+
+  return [
+    buildWebSiteJsonLd(),
+    buildLocalBusinessJsonLd(),
+    buildBreadcrumbJsonLd(crumbs),
+    webPage,
+  ]
+}
+
 export const pageMeta = {
   home: {
     title: 'Golden Bay Organics | Organic Grocer in Takaka, Golden Bay',
     description:
-      'Organic grocer in Takaka, Golden Bay. Fresh produce, bulk foods, herbs, bakery, specialty foods & eco cleaners at 47 Commercial Street. Open Mon–Sat.',
+      'Organic grocer in Takaka, Golden Bay. Fresh produce, bulk refill foods, herbs, bakery, specialty foods & eco cleaners at 47 Commercial Street. Open Mon–Sat.',
     path: '/',
     keywords: SEARCH_KEYWORDS,
   },
@@ -168,15 +260,15 @@ export const pageMeta = {
   visit: {
     title: 'Hours & Directions | Organic Shop Takaka — Golden Bay Organics',
     description:
-      "Visit Takaka's organic shop at 47 Commercial Street, Takaka 7110. Open Mon–Fri 9am–5pm, Sat 10am–2pm. Phone 03 525 8677.",
+      "Visit Takaka's organic shop at 47 Commercial Street, Takaka 7110. Open Mon–Fri 9am–5pm, Sat 10am–2pm. Call 03 525 8677 to check stock or place a bulk order.",
     path: '/visit',
-    keywords: `${SEARCH_KEYWORDS}, Golden Bay Organics hours, organic shop directions Takaka`,
+    keywords: `${SEARCH_KEYWORDS}, Golden Bay Organics hours, organic shop directions Takaka, bulk order Takaka`,
   },
   about: {
     title: 'About | Organic Grocer Takaka — Golden Bay Organics',
     description:
-      "About Golden Bay Organics — Takaka's local organic grocer on Commercial Street. Fresh, affordable organic food for Golden Bay and Tasman.",
+      "About Golden Bay Organics — Takaka's local organic grocer on Commercial Street. Spray-free produce, bulk refills, bakery and eco cleaners for Golden Bay.",
     path: '/about',
-    keywords: `${SEARCH_KEYWORDS}, Patricia Smith Takaka, local organic grocer Golden Bay`,
+    keywords: `${SEARCH_KEYWORDS}, Patricia Smith Takaka, local organic grocer Golden Bay, bulk refill Takaka`,
   },
 } satisfies Record<string, PageMeta>

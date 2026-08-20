@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
+import { business } from '../data/business'
 import { SiteHead } from '../components/layout/SiteHead'
 import { CatalogSearch } from '../components/stock/CatalogSearch'
 import { CatalogTable } from '../components/stock/CatalogTable'
@@ -162,7 +163,7 @@ export function Component() {
             Availability varies — for bulk orders or to check a specific item, please{' '}
             <Link to="/visit">visit the shop</Link> or message us on{' '}
             <a
-              href="https://www.facebook.com/profile.php?id=100092461392927"
+              href={business.profiles.facebook}
               target="_blank"
               rel="noopener noreferrer"
             >

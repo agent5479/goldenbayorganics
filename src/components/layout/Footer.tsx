@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { business, openingHours } from '../../data/business'
+import { business } from '../../data/business'
 import './Footer.css'
 
 export function Footer() {
@@ -23,7 +23,7 @@ export function Footer() {
         <div className="footer__col">
           <p className="label footer__label">Connect</p>
           <p>
-            <a href={business.facebook} target="_blank" rel="noopener noreferrer">
+            <a href={business.profiles.facebook} target="_blank" rel="noopener noreferrer">
               Facebook
             </a>
           </p>

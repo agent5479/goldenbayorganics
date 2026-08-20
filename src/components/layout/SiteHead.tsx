@@ -58,7 +58,8 @@ export function SiteHead({ meta, jsonLd }: SiteHeadProps) {
 
       {jsonLd && (
         <script type="application/ld+json">
-          {JSON.stringify(Array.isArray(jsonLd) ? jsonLd : jsonLd)}
+          {/* vite-react-ssg treats `$` as template syntax; double so priceRange "$$" survives */}
+          {JSON.stringify(Array.isArray(jsonLd) ? jsonLd : jsonLd).replace(/\$/g, '$$$$')}
         </script>
       )}
     </Head>

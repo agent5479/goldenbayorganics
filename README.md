@@ -8,10 +8,22 @@ Brochure website for [Golden Bay Organics](https://www.facebook.com/profile.php?
 
 Static pages are prerendered for crawlers and social previews. Brand and location (Golden Bay Organics, Takaka) appear in:
 
-- Per-page titles, descriptions, Open Graph / Twitter tags, and GroceryStore JSON-LD (`src/lib/seo.ts`)
+- Per-page titles, descriptions, Open Graph / Twitter tags, and GroceryStore JSON-LD with department `OfferCatalog` (`src/lib/seo.ts`)
+- Dedicated department pages at `/shop/{produce|herbs|bakery|bulk|specialty|household}`
 - `public/robots.txt` and `public/sitemap.xml` (regenerated on build)
+- `public/llms.txt` — short factual summary for AI crawlers
 - Favicons + `site.webmanifest` (`npm run generate:favicons`)
 - `public/humans.txt`
+
+### Google Business Profile (off-site checklist)
+
+Keep the GBP listing identical to the site NAP and departments:
+
+1. Website = `https://goldenbayorganics.co.nz`
+2. Address, phone, and hours match [`src/data/business.ts`](src/data/business.ts) / `/visit`
+3. Primary category and services mirror the six shop departments
+4. Paste the Maps/GBP URL into `business.profiles.googleBusinessProfile` so it appears in JSON-LD `sameAs`
+5. Photos and service wording should echo the department page language (bulk refill, spray-free produce, etc.)
 
 ## Local development
 
