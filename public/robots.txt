@@ -2,6 +2,9 @@
 # Organic grocer in Takaka, Golden Bay, New Zealand
 # https://goldenbayorganics.co.nz
 #
+# Indexable pages: /, /stocklist, /shop/*, /visit, /about
+# AI / LLM summary: https://goldenbayorganics.co.nz/llms.txt
+#
 # Allow full crawl of public pages for local search and AI discovery
 # (organic grocer Takaka, organic shop Golden Bay, etc.)
 
@@ -31,6 +34,10 @@ Allow: /
 
 User-agent: Google-Extended
 Allow: /
+
+# Do not index tooling paths if they appear
+Disallow: /.vite/
+Disallow: /.vite-react-ssg-temp/
 
 Sitemap: https://goldenbayorganics.co.nz/sitemap.xml
 Host: goldenbayorganics.co.nz

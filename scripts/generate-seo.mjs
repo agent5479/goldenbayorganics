@@ -8,6 +8,7 @@ const publicDir = join(root, 'public')
 const SITE_URL = 'https://goldenbayorganics.co.nz'
 const lastmod = new Date().toISOString().slice(0, 10)
 
+/** Keep in sync with `categories` in src/data/business.ts */
 const shopCategories = ['produce', 'herbs', 'bakery', 'bulk', 'specialty', 'household']
 
 const pages = [
@@ -18,7 +19,7 @@ const pages = [
     changefreq: 'weekly',
     priority: '0.8',
   })),
-  { path: '/visit', changefreq: 'monthly', priority: '0.8' },
+  { path: '/visit', changefreq: 'monthly', priority: '0.85' },
   { path: '/about', changefreq: 'monthly', priority: '0.7' },
 ]
 
@@ -29,6 +30,9 @@ function pageLoc(path) {
 const robotsTxt = `# robots.txt for Golden Bay Organics
 # Organic grocer in Takaka, Golden Bay, New Zealand
 # ${SITE_URL}
+#
+# Indexable pages: /, /stocklist, /shop/*, /visit, /about
+# AI / LLM summary: ${SITE_URL}/llms.txt
 #
 # Allow full crawl of public pages for local search and AI discovery
 # (organic grocer Takaka, organic shop Golden Bay, etc.)
@@ -59,6 +63,10 @@ Allow: /
 
 User-agent: Google-Extended
 Allow: /
+
+# Do not index tooling paths if they appear
+Disallow: /.vite/
+Disallow: /.vite-react-ssg-temp/
 
 Sitemap: ${SITE_URL}/sitemap.xml
 Host: ${SITE_URL.replace('https://', '')}

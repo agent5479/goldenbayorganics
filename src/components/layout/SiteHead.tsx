@@ -29,6 +29,7 @@ export function SiteHead({ meta, jsonLd }: SiteHeadProps) {
       <meta name="ICBM" content="-40.8556, 172.8076" />
       <link rel="canonical" href={url} />
       <link rel="sitemap" type="application/xml" title="Sitemap" href={`${SITE_URL}/sitemap.xml`} />
+      <link rel="alternate" type="text/plain" title="LLM summary" href={`${SITE_URL}/llms.txt`} />
       <link rel="icon" href="/favicon.ico" sizes="48x48" />
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

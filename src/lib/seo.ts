@@ -11,6 +11,8 @@ export interface PageMeta {
   title: string
   description: string
   path: string
+  /** Short label for BreadcrumbList (defaults to a trimmed title). */
+  breadcrumb?: string
   keywords?: string
   image?: string
 }
@@ -50,6 +52,7 @@ export const OG_IMAGE = {
 
 const defaultImage = `${SITE_URL}${OG_IMAGE.path}`
 const STORE_ID = `${SITE_URL}/#store`
+const WEBSITE_ID = `${SITE_URL}/#website`
 
 export function pageUrl(path: string): string {
   const normalized = path === '/' ? '' : path.replace(/^\//, '')
@@ -158,7 +161,7 @@ export function buildWebSiteJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': `${SITE_URL}/#website`,
+    '@id': WEBSITE_ID,
     name: business.name,
     alternateName: 'Golden Bay Organics Takaka',
     url: SITE_URL,
@@ -183,16 +186,40 @@ export function buildBreadcrumbJsonLd(
   }
 }
 
+function breadcrumbLabel(meta: PageMeta): string {
+  if (meta.breadcrumb) return meta.breadcrumb
+  return meta.title.split('—')[0].split('|')[0].trim()
+}
+
+function buildWebPageJsonLd(meta: PageMeta) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${pageUrl(meta.path)}#webpage`,
+    url: pageUrl(meta.path),
+    name: meta.title,
+    description: meta.description,
+    isPartOf: { '@id': WEBSITE_ID },
+    about: { '@id': STORE_ID },
+    inLanguage: 'en-NZ',
+  }
+}
+
 export function buildPageJsonLd(meta: PageMeta) {
   const crumbs =
     meta.path === '/'
       ? [{ name: 'Home', path: '/' }]
       : [
           { name: 'Home', path: '/' },
-          { name: meta.title.split('—')[0].split('|')[0].trim(), path: meta.path },
+          { name: breadcrumbLabel(meta), path: meta.path },
         ]
 
-  return [buildWebSiteJsonLd(), buildLocalBusinessJsonLd(), buildBreadcrumbJsonLd(crumbs)]
+  return [
+    buildWebSiteJsonLd(),
+    buildLocalBusinessJsonLd(),
+    buildBreadcrumbJsonLd(crumbs),
+    buildWebPageJsonLd(meta),
+  ]
 }
 
 export function categoryPageMeta(category: ShopCategory): PageMeta {
@@ -200,35 +227,33 @@ export function categoryPageMeta(category: ShopCategory): PageMeta {
     title: category.seoTitle,
     description: category.seoDescription,
     path: shopCategoryPath(category.id),
-    keywords: `${SEARCH_KEYWORDS}, ${category.label} Takaka, ${category.label} Golden Bay`,
+    breadcrumb: category.label,
+    keywords: [
+      SEARCH_KEYWORDS,
+      `${category.label} Takaka`,
+      `organic ${category.id} Golden Bay`,
+      `${category.label} Commercial Street`,
+    ].join(', '),
   }
 }
 
 export function buildCategoryPageJsonLd(category: ShopCategory) {
-  const path = shopCategoryPath(category.id)
   const meta = categoryPageMeta(category)
   const crumbs = [
     { name: 'Home', path: '/' },
     { name: 'Stocklist', path: '/stocklist' },
-    { name: category.label, path },
+    { name: category.label, path: meta.path },
   ]
 
   const webPage = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    '@id': `${pageUrl(path)}#webpage`,
-    url: pageUrl(path),
-    name: meta.title,
-    description: meta.description,
-    isPartOf: { '@id': `${SITE_URL}/#website` },
-    about: { '@id': STORE_ID },
+    ...buildWebPageJsonLd(meta),
     mainEntity: {
       '@type': 'Offer',
       itemOffered: {
         '@type': 'Service',
         name: category.label,
         description: category.description,
-        url: pageUrl(path),
+        url: pageUrl(meta.path),
         provider: { '@id': STORE_ID },
       },
     },
@@ -248,20 +273,23 @@ export const pageMeta = {
     description:
       'Organic grocer in Takaka, Golden Bay. Fresh produce, bulk refill foods, herbs, bakery, specialty foods & eco cleaners at 47 Commercial Street. Open Mon–Sat.',
     path: '/',
+    breadcrumb: 'Home',
     keywords: SEARCH_KEYWORDS,
   },
   stocklist: {
     title: 'Organic Stocklist & Photos | Golden Bay Organics Takaka',
     description:
-      'Search the organic product catalog at Golden Bay Organics, Takaka — produce, bulk foods, herbs, bakery and specialty goods. Browse current stock photos.',
+      'Search the live organic product catalog at Golden Bay Organics, Takaka — produce, bulk foods, herbs, bakery, specialty goods and eco cleaners. Browse current stock photos; prices dated on the page.',
     path: '/stocklist',
-    keywords: `${SEARCH_KEYWORDS}, organic stocklist Takaka, organic products Golden Bay`,
+    breadcrumb: 'Stocklist',
+    keywords: `${SEARCH_KEYWORDS}, organic stocklist Takaka, organic products Golden Bay, shop catalog Takaka`,
   },
   visit: {
     title: 'Hours & Directions | Organic Shop Takaka — Golden Bay Organics',
     description:
       "Visit Takaka's organic shop at 47 Commercial Street, Takaka 7110. Open Mon–Fri 9am–5pm, Sat 10am–2pm. Call 03 525 8677 to check stock or place a bulk order.",
     path: '/visit',
+    breadcrumb: 'Visit',
     keywords: `${SEARCH_KEYWORDS}, Golden Bay Organics hours, organic shop directions Takaka, bulk order Takaka`,
   },
   about: {
@@ -269,6 +297,7 @@ export const pageMeta = {
     description:
       "About Golden Bay Organics — Takaka's local organic grocer on Commercial Street. Spray-free produce, bulk refills, bakery and eco cleaners for Golden Bay.",
     path: '/about',
+    breadcrumb: 'About',
     keywords: `${SEARCH_KEYWORDS}, Patricia Smith Takaka, local organic grocer Golden Bay, bulk refill Takaka`,
   },
 } satisfies Record<string, PageMeta>
