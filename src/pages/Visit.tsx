@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom'
 import { business, openingHours } from '../data/business'
 import { SiteHead } from '../components/layout/SiteHead'
-import { buildPageJsonLd, pageMeta } from '../lib/seo'
+import {
+  buildFaqPageJsonLd,
+  buildPageJsonLd,
+  pageMeta,
+  visitFaqs,
+} from '../lib/seo'
 import './VisitPage.css'
 
 const mapQuery = encodeURIComponent(`${business.address.full}, New Zealand`)
@@ -10,13 +15,17 @@ const mapEmbed = `https://maps.google.com/maps?q=${mapQuery}&output=embed`
 export function Component() {
   return (
     <>
-      <SiteHead meta={pageMeta.visit} jsonLd={buildPageJsonLd(pageMeta.visit)} />
+      <SiteHead
+        meta={pageMeta.visit}
+        jsonLd={buildPageJsonLd(pageMeta.visit, [buildFaqPageJsonLd(visitFaqs)])}
+      />
       <header className="page-header">
         <div className="page-header__inner page-header__inner--narrow">
           <h1>Visit us</h1>
           <p className="page-subtitle">
-            Organic groceries, bulk refills, and bakery staples on Commercial Street — we would
-            love to see you in store.
+            Golden Bay Organics is at 47 Commercial Street, Takaka — open Mon–Fri
+            9am–5pm and Sat 10am–2pm. Call 03 525 8677 to check stock or place a
+            bulk order.
           </p>
         </div>
       </header>
@@ -78,7 +87,28 @@ export function Component() {
         </div>
       </div>
 
-      <section className="section section--alt">
+      <section className="section section--alt" aria-labelledby="visit-faq-heading">
+        <div className="section__inner section__inner--narrow">
+          <p className="label section__label">FAQ</p>
+          <h2 id="visit-faq-heading">Common questions</h2>
+          <p className="visit-faq-lead">
+            Straight answers for visitors looking up hours, location, and how shopping works in
+            Takaka.
+          </p>
+          <dl className="visit-faq">
+            {visitFaqs.map((faq) => (
+              <div key={faq.question} className="visit-faq__item">
+                <dt>
+                  <h3>{faq.question}</h3>
+                </dt>
+                <dd>{faq.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section className="section">
         <div className="section__inner">
           <p className="label section__label">Map</p>
           <div className="visit-map">

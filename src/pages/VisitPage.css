@@ -62,3 +62,43 @@
   border: 0;
   display: block;
 }
+
+.visit-faq-lead {
+  margin: 0.5rem 0 1.5rem;
+  color: var(--muted);
+}
+
+.visit-faq {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.visit-faq__item {
+  margin: 0;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+}
+
+.visit-faq__item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.visit-faq__item dt {
+  margin: 0;
+}
+
+.visit-faq__item h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.visit-faq__item dd {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}

@@ -10,6 +10,17 @@
   margin: 0 0 1rem;
 }
 
+.shop-cat-steps {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.shop-cat-steps li {
+  margin-bottom: 0.4rem;
+}
+
 .shop-cat-prose__meta {
   margin: 1.25rem 0 0;
   color: var(--muted);

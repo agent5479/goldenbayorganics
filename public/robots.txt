@@ -5,8 +5,9 @@
 # Indexable pages: /, /stocklist, /shop/*, /visit, /about
 # AI / LLM summary: https://goldenbayorganics.co.nz/llms.txt
 #
-# Allow full crawl of public pages for local search and AI discovery
-# (organic grocer Takaka, organic shop Golden Bay, etc.)
+# Allow full crawl of public pages for local search and AI discovery.
+# Hosted on GitHub Pages (no Cloudflare bot fight mode on this origin).
+# Bytespider not listed — TikTok/Doubao surfaces are out of scope for this shop.
 
 User-agent: *
 Allow: /
@@ -23,16 +24,25 @@ Allow: /
 User-agent: GPTBot
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: PerplexityBot
+User-agent: Google-Extended
 Allow: /
 
 User-agent: ClaudeBot
 Allow: /
 
-User-agent: Google-Extended
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 # Do not index tooling paths if they appear

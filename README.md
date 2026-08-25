@@ -8,12 +8,13 @@ Brochure website for [Golden Bay Organics](https://www.facebook.com/profile.php?
 
 Static pages are prerendered for crawlers and social previews. Brand and location (Golden Bay Organics, Takaka) appear in:
 
-- Per-page titles, descriptions, Open Graph / Twitter tags, and GroceryStore JSON-LD with department `OfferCatalog` (`src/lib/seo.ts`)
+- Per-page titles, descriptions, Open Graph / Twitter tags, and GroceryStore / Organization JSON-LD with department `OfferCatalog`, Visit `FAQPage`, bulk `HowTo`, and owner `Person` (`src/lib/seo.ts`)
 - Dedicated department pages at `/shop/{produce|herbs|bakery|bulk|specialty|household}`
-- `public/robots.txt` and `public/sitemap.xml` (regenerated on build)
-- `public/llms.txt` — short factual summary for AI crawlers
+- `public/robots.txt`, `public/sitemap.xml`, and `public/llms.txt` (regenerated on build via `npm run generate:seo`)
 - Favicons + `site.webmanifest` (`npm run generate:favicons`)
 - `public/humans.txt`
+
+Cursor agents: see [`.cursor/rules/seo-geo.mdc`](.cursor/rules/seo-geo.mdc) for the full SEO/GEO checklist.
 
 ### Google Business Profile (off-site checklist)
 
@@ -25,6 +26,9 @@ Keep the GBP listing identical to the site NAP and departments:
 4. Paste the Maps/GBP URL into `business.profiles.googleBusinessProfile` so it appears in JSON-LD `sameAs`
 5. Photos and service wording should echo the department page language (bulk refill, spray-free produce, etc.)
 
+### AI citation measurement (manual)
+
+Search Console does not report ChatGPT / Perplexity / Gemini / Claude citations. Periodically ask each with real local prompts (e.g. “organic shop Takaka”, “bulk refill Golden Bay”) and note which pages or competitors are cited. GitHub Pages does not expose crawler logs for AI bot user-agents.
 ## Local development
 
 ```bash

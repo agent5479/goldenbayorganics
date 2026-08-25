@@ -92,8 +92,8 @@ export const categories = [
     seoDescription:
       'Bulk grains, nuts, legumes, and pantry staples at Golden Bay Organics, Takaka. Refill jars, buy the amount you need, phone ahead for larger bulk orders.',
     body: [
-      'Our bulk foods aisle is for refill shopping — oats, grains, nuts, legumes, and pantry staples by weight so you take home what you will use. Bring your own containers when you can; we will weigh and price them at the counter.',
-      'Planning a bigger order? Phone 03 525 8677 and we will check stock before you drive in from elsewhere in Golden Bay.',
+      'You can buy bulk food refills by weight at Golden Bay Organics in Takaka — oats, grains, nuts, legumes, and pantry staples without buying more packaging than you need.',
+      'How to refill in store: (1) Bring clean jars or containers. (2) Choose what you need from the bulk foods aisle. (3) Weigh and pay at the counter. (4) For larger orders, phone 03 525 8677 first so we can check stock before you drive in from elsewhere in Golden Bay.',
     ],
   },
   {

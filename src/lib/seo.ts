@@ -51,8 +51,15 @@ export const OG_IMAGE = {
 } as const
 
 const defaultImage = `${SITE_URL}${OG_IMAGE.path}`
+const LOGO_URL = `${SITE_URL}/android-chrome-512x512.png`
 const STORE_ID = `${SITE_URL}/#store`
 const WEBSITE_ID = `${SITE_URL}/#website`
+const OWNER_ID = `${SITE_URL}/#patricia-smith`
+
+export interface FaqItem {
+  question: string
+  answer: string
+}
 
 export function pageUrl(path: string): string {
   const normalized = path === '/' ? '' : path.replace(/^\//, '')
@@ -99,14 +106,21 @@ function buildOfferCatalog() {
 export function buildLocalBusinessJsonLd() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['GroceryStore', 'Store'],
+    '@type': ['GroceryStore', 'Store', 'Organization'],
     '@id': STORE_ID,
     name: business.name,
+    legalName: business.name,
     alternateName: ['Golden Bay Organics Takaka', 'Organic shop Takaka'],
     description: STORE_DESCRIPTION,
     slogan: business.tagline,
     url: SITE_URL,
     image: defaultImage,
+    logo: {
+      '@type': 'ImageObject',
+      url: LOGO_URL,
+      width: 512,
+      height: 512,
+    },
     telephone: business.phoneTel,
     priceRange: '$$',
     currenciesAccepted: 'NZD',
@@ -131,6 +145,8 @@ export function buildLocalBusinessJsonLd() {
       { '@type': 'AdministrativeArea', name: 'Golden Bay' },
       { '@type': 'AdministrativeArea', name: 'Tasman' },
     ],
+    founder: { '@id': OWNER_ID },
+    employee: { '@id': OWNER_ID },
     knowsAbout: [
       'organic groceries',
       'organic produce',
@@ -154,6 +170,121 @@ export function buildLocalBusinessJsonLd() {
         opens: row.opens,
         closes: row.closes,
       })),
+  }
+}
+
+export function buildPersonJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': OWNER_ID,
+    name: business.owner.name,
+    jobTitle: 'Owner',
+    worksFor: { '@id': STORE_ID },
+    url: business.owner.servicesUrl,
+    sameAs: [business.owner.servicesUrl, business.profiles.facebook].filter(
+      Boolean,
+    ),
+    knowsAbout: [
+      'organic groceries',
+      'Touch for Health Kinesiology',
+      'nutrition',
+      'yoga',
+      'Golden Bay',
+    ],
+  }
+}
+
+/** Visit-page FAQs — answers must stand alone (no "see above"). */
+export const visitFaqs: FaqItem[] = [
+  {
+    question: 'Where is Golden Bay Organics in Takaka?',
+    answer:
+      'Golden Bay Organics is at 47 Commercial Street, Takaka 7110, Tasman, New Zealand — on the main street in the centre of Takaka.',
+  },
+  {
+    question: 'What are Golden Bay Organics opening hours?',
+    answer:
+      'Golden Bay Organics is open Monday to Friday 9:00am–5:00pm and Saturday 10:00am–2:00pm. The shop is closed on Sunday.',
+  },
+  {
+    question: 'How do I check stock or place a bulk order?',
+    answer:
+      'Call 03 525 8677 (+64 3 525 8677) to check whether an item is in stock, reserve bakery items, or arrange a larger bulk order before you drive in.',
+  },
+  {
+    question: 'Can I refill bulk foods and cleaners at Golden Bay Organics?',
+    answer:
+      'Yes. Bring clean jars or bottles for bulk pantry staples and eco cleaner refills where available; we weigh and price them at the counter on Commercial Street.',
+  },
+  {
+    question: 'Does Golden Bay Organics sell online?',
+    answer:
+      'Not yet. Browse the online stocklist and department pages for what we usually carry, then visit the Takaka shop or call to confirm availability and buy in store.',
+  },
+]
+
+export function buildFaqPageJsonLd(faqs: FaqItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
+}
+
+export function buildBulkRefillHowToJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to buy bulk food refills at Golden Bay Organics',
+    description:
+      'Steps to refill jars with bulk grains, nuts, legumes, and pantry staples at Golden Bay Organics in Takaka.',
+    totalTime: 'PT15M',
+    estimatedCost: {
+      '@type': 'MonetaryAmount',
+      currency: 'NZD',
+      value: '0',
+    },
+    supply: [
+      {
+        '@type': 'HowToSupply',
+        name: 'Clean reusable jars or containers',
+      },
+    ],
+    tool: [],
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Bring clean containers',
+        text: 'Bring clean jars or containers from home so you can refill without buying extra packaging.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Choose bulk staples',
+        text: 'Select the bulk grains, nuts, legumes, or pantry staples you need from the bulk foods aisle.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Weigh and pay at the counter',
+        text: 'Bring your filled containers to the counter; we weigh them and charge by weight in New Zealand dollars.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: 'Call ahead for large orders',
+        text: 'For a bigger order, phone 03 525 8677 first so we can check stock before you drive into Takaka.',
+      },
+    ],
   }
 }
 
@@ -205,7 +336,10 @@ function buildWebPageJsonLd(meta: PageMeta) {
   }
 }
 
-export function buildPageJsonLd(meta: PageMeta) {
+export function buildPageJsonLd(
+  meta: PageMeta,
+  extras: Record<string, unknown>[] = [],
+) {
   const crumbs =
     meta.path === '/'
       ? [{ name: 'Home', path: '/' }]
@@ -217,8 +351,10 @@ export function buildPageJsonLd(meta: PageMeta) {
   return [
     buildWebSiteJsonLd(),
     buildLocalBusinessJsonLd(),
+    buildPersonJsonLd(),
     buildBreadcrumbJsonLd(crumbs),
     buildWebPageJsonLd(meta),
+    ...extras,
   ]
 }
 
@@ -259,12 +395,19 @@ export function buildCategoryPageJsonLd(category: ShopCategory) {
     },
   }
 
-  return [
+  const graph: Record<string, unknown>[] = [
     buildWebSiteJsonLd(),
     buildLocalBusinessJsonLd(),
+    buildPersonJsonLd(),
     buildBreadcrumbJsonLd(crumbs),
     webPage,
   ]
+
+  if (category.id === 'bulk') {
+    graph.push(buildBulkRefillHowToJsonLd())
+  }
+
+  return graph
 }
 
 export const pageMeta = {

@@ -48,6 +48,16 @@ export function Component() {
           {category.body.map((paragraph) => (
             <p key={paragraph.slice(0, 48)}>{paragraph}</p>
           ))}
+          {category.id === 'bulk' && (
+            <ol className="shop-cat-steps">
+              <li>Bring clean jars or containers from home.</li>
+              <li>Choose bulk grains, nuts, legumes, or pantry staples.</li>
+              <li>Weigh and pay at the counter (charged by weight in NZD).</li>
+              <li>
+                Call <a href="tel:+6435258677">03 525 8677</a> ahead for large orders.
+              </li>
+            </ol>
+          )}
           <p className="shop-cat-prose__meta label">
             {showcaseCount} showcase item{showcaseCount === 1 ? '' : 's'} on the homepage grid
             {photos.length > 0

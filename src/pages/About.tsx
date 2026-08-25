@@ -21,9 +21,9 @@ export function Component() {
       <article className="section">
         <div className="section__inner section__inner--narrow about-prose">
           <p>
-            {business.name} is Takaka&apos;s organic grocer on Commercial Street — a place to
-            pick up seasonal produce, refill bulk pantry staples, grab bakery favourites, and top
-            up eco cleaners without a supermarket run out of Golden Bay.
+            Golden Bay Organics is Takaka&apos;s organic grocer at 47 Commercial Street —
+            seasonal produce, bulk pantry refills, bakery favourites, and eco cleaners without a
+            supermarket run out of Golden Bay.
           </p>
           <p>
             We source local spray-free and organic fruit and vegetables whenever we can, support
