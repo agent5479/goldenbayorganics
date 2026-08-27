@@ -12,6 +12,7 @@ Static pages are prerendered for crawlers and social previews. Brand and locatio
 - Dedicated department pages at `/shop/{produce|herbs|bakery|bulk|specialty|household}`
 - `public/robots.txt`, `public/sitemap.xml`, and `public/llms.txt` (regenerated on build via `npm run generate:seo`)
 - Favicons + `site.webmanifest` (`npm run generate:favicons`)
+- Per-page Open Graph images at 1200×630 (`npm run generate:og` → `public/images/og/`)
 - `public/humans.txt`
 
 Cursor agents: see [`.cursor/rules/seo-geo.mdc`](.cursor/rules/seo-geo.mdc) for the full SEO/GEO checklist.
@@ -81,12 +82,13 @@ Pushes to `main` trigger [`.github/workflows/deploy.yml`](.github/workflows/depl
 
 ## Images
 
-Add photos to `public/images/` as JPG files. On build, `npm run generate:images` creates WebP thumbnails in `public/images/thumbs/` and updates [`src/data/gallery.json`](src/data/gallery.json).
+Add photos to `public/images/` as JPG files. On build, `npm run generate:images` creates WebP thumbnails in `public/images/thumbs/` and updates [`src/data/gallery.json`](src/data/gallery.json). `npm run generate:og` crops shop photos into 1200×630 link-preview images under `public/images/og/`.
 
-To regenerate thumbnails locally:
+To regenerate thumbnails and OG images locally:
 
 ```bash
 npm run generate:images
+npm run generate:og
 ```
 
 Link products to photos by setting the `image` filename in [`src/data/stock.json`](src/data/stock.json) — the gallery script matches them automatically.

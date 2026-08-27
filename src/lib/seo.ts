@@ -44,8 +44,8 @@ const STORE_DESCRIPTION =
 
 export const OG_IMAGE = {
   path: '/images/og-default.jpg',
-  width: 2048,
-  height: 1365,
+  width: 1200,
+  height: 630,
   type: 'image/jpeg',
   alt: 'Golden Bay Organics shopfront on Commercial Street, Takaka',
 } as const
@@ -364,6 +364,7 @@ export function categoryPageMeta(category: ShopCategory): PageMeta {
     description: category.seoDescription,
     path: shopCategoryPath(category.id),
     breadcrumb: category.label,
+    image: `og/${category.id}.jpg`,
     keywords: [
       SEARCH_KEYWORDS,
       `${category.label} Takaka`,
@@ -417,6 +418,7 @@ export const pageMeta = {
       'Organic grocer in Takaka, Golden Bay. Fresh produce, bulk refill foods, herbs, bakery, specialty foods & eco cleaners at 47 Commercial Street. Open Mon–Sat.',
     path: '/',
     breadcrumb: 'Home',
+    image: 'og/home.jpg',
     keywords: SEARCH_KEYWORDS,
   },
   stocklist: {
@@ -425,6 +427,7 @@ export const pageMeta = {
       'Search the live organic product catalog at Golden Bay Organics, Takaka — produce, bulk foods, herbs, bakery, specialty goods and eco cleaners. Browse current stock photos; prices dated on the page.',
     path: '/stocklist',
     breadcrumb: 'Stocklist',
+    image: 'og/stocklist.jpg',
     keywords: `${SEARCH_KEYWORDS}, organic stocklist Takaka, organic products Golden Bay, shop catalog Takaka`,
   },
   visit: {
@@ -433,6 +436,7 @@ export const pageMeta = {
       "Visit Takaka's organic shop at 47 Commercial Street, Takaka 7110. Open Mon–Fri 9am–5pm, Sat 10am–2pm. Call 03 525 8677 to check stock or place a bulk order.",
     path: '/visit',
     breadcrumb: 'Visit',
+    image: 'og/visit.jpg',
     keywords: `${SEARCH_KEYWORDS}, Golden Bay Organics hours, organic shop directions Takaka, bulk order Takaka`,
   },
   about: {
@@ -441,6 +445,7 @@ export const pageMeta = {
       "About Golden Bay Organics — Takaka's local organic grocer on Commercial Street. Spray-free produce, bulk refills, bakery and eco cleaners for Golden Bay.",
     path: '/about',
     breadcrumb: 'About',
+    image: 'og/about.jpg',
     keywords: `${SEARCH_KEYWORDS}, Patricia Smith Takaka, local organic grocer Golden Bay, bulk refill Takaka`,
   },
 } satisfies Record<string, PageMeta>
